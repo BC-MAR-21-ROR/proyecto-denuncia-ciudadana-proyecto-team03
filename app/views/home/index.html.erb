@@ -2,5 +2,6 @@
 <p>Welcome <%= current_user.username %> <%= current_user.user_type %></p>
 
 <% if user_signed_in? %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </br>
+  <%= link_to "Account configuration", edit_user_registration_path %>
 <% end %>
