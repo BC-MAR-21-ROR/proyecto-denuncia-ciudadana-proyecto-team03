@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_225439) do
+ActiveRecord::Schema.define(version: 2021_05_13_230337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(version: 2021_05_13_225439) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["state_id"], name: "index_municipalities_on_state_id"
+  end
+
+  create_table "settlements", force: :cascade do |t|
+    t.bigint "municipality_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["municipality_id"], name: "index_settlements_on_municipality_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -48,4 +56,5 @@ ActiveRecord::Schema.define(version: 2021_05_13_225439) do
   end
 
   add_foreign_key "municipalities", "states"
+  add_foreign_key "settlements", "municipalities"
 end
