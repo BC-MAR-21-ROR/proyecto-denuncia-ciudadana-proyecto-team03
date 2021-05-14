@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_221618) do
+ActiveRecord::Schema.define(version: 2021_05_13_230539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "municipalities", force: :cascade do |t|
+    t.bigint "state_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["state_id"], name: "index_municipalities_on_state_id"
+  end
+
+  create_table "settlements", force: :cascade do |t|
+    t.bigint "municipality_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["municipality_id"], name: "index_settlements_on_municipality_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", default: ""
@@ -33,4 +55,15 @@ ActiveRecord::Schema.define(version: 2021_05_07_221618) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "zips", force: :cascade do |t|
+    t.bigint "settlement_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["settlement_id"], name: "index_zips_on_settlement_id"
+  end
+
+  add_foreign_key "municipalities", "states"
+  add_foreign_key "settlements", "municipalities"
+  add_foreign_key "zips", "settlements"
 end
