@@ -1,3 +1,3 @@
 class Settlement < ApplicationRecord
-  belongs_to :municipality
+  belongs_to :zip
 end

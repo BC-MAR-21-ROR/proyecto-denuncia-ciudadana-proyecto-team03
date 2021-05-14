@@ -1,3 +1,3 @@
 class Zip < ApplicationRecord
-  belongs_to :settlement
+  belongs_to :municipality
 end
