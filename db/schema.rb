@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_200835) do
+ActiveRecord::Schema.define(version: 2021_05_18_162123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 2021_05_14_200835) do
     t.index ["settlement_id"], name: "index_complaints_on_settlement_id"
     t.index ["state_id"], name: "index_complaints_on_state_id"
     t.index ["zip_id"], name: "index_complaints_on_zip_id"
+  end
+
+  create_table "interest_places", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "zip_id", null: false
+    t.bigint "settlement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["settlement_id"], name: "index_interest_places_on_settlement_id"
+    t.index ["user_id"], name: "index_interest_places_on_user_id"
+    t.index ["zip_id"], name: "index_interest_places_on_zip_id"
   end
 
   create_table "municipalities", force: :cascade do |t|
@@ -94,6 +105,9 @@ ActiveRecord::Schema.define(version: 2021_05_14_200835) do
   add_foreign_key "complaints", "settlements"
   add_foreign_key "complaints", "states"
   add_foreign_key "complaints", "zips"
+  add_foreign_key "interest_places", "settlements"
+  add_foreign_key "interest_places", "users"
+  add_foreign_key "interest_places", "zips"
   add_foreign_key "municipalities", "states"
   add_foreign_key "settlements", "zips"
   add_foreign_key "zips", "municipalities"
