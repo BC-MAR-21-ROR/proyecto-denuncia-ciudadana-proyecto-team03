@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </br>
+      <%= link_to "Account configuration", edit_user_registration_path %> </br> </br>
+
+      <!--Options-->
+      <%= link_to "Home", root_path %> </br>
+      <%= link_to "My interest places", interest_places_path %> </br>
+    <% end %>
     <%= yield %>
   </body>
 </html>
