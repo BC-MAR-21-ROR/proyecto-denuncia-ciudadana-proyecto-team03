@@ -4,10 +4,10 @@ one:
   title: MyString
   description: MyText
   category: one
-  date_of_events: 2021-05-14
+  date_of_events: 2021-05-21
   state: one
   municipality: one
-  zip: one
+  postal: one
   settlement: one
   street: MyString
   number: MyString
@@ -16,10 +16,10 @@ two:
   title: MyString
   description: MyText
   category: two
-  date_of_events: 2021-05-14
+  date_of_events: 2021-05-21
   state: two
   municipality: two
-  zip: two
+  postal: two
   settlement: two
   street: MyString
   number: MyString

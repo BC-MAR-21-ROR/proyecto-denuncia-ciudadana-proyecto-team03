@@ -19,11 +19,11 @@ class ComplaintsTest < ApplicationSystemTestCase
     fill_in "Description", with: @complaint.description
     fill_in "Municipality", with: @complaint.municipality_id
     fill_in "Number", with: @complaint.number
+    fill_in "Postal", with: @complaint.postal_id
     fill_in "Settlement", with: @complaint.settlement_id
     fill_in "State", with: @complaint.state_id
     fill_in "Street", with: @complaint.street
     fill_in "Title", with: @complaint.title
-    fill_in "Zip", with: @complaint.zip_id
     click_on "Create Complaint"
 
     assert_text "Complaint was successfully created"
@@ -39,11 +39,11 @@ class ComplaintsTest < ApplicationSystemTestCase
     fill_in "Description", with: @complaint.description
     fill_in "Municipality", with: @complaint.municipality_id
     fill_in "Number", with: @complaint.number
+    fill_in "Postal", with: @complaint.postal_id
     fill_in "Settlement", with: @complaint.settlement_id
     fill_in "State", with: @complaint.state_id
     fill_in "Street", with: @complaint.street
     fill_in "Title", with: @complaint.title
-    fill_in "Zip", with: @complaint.zip_id
     click_on "Update Complaint"
 
     assert_text "Complaint was successfully updated"

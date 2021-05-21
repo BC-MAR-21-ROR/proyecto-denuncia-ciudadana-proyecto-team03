@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_200835) do
+ActiveRecord::Schema.define(version: 2021_05_21_195649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_200835) do
     t.date "date_of_events"
     t.bigint "state_id", null: false
     t.bigint "municipality_id", null: false
-    t.bigint "zip_id", null: false
+    t.bigint "postal_id", null: false
     t.bigint "settlement_id", null: false
     t.string "street"
     t.string "number"
@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 2021_05_14_200835) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_complaints_on_category_id"
     t.index ["municipality_id"], name: "index_complaints_on_municipality_id"
+    t.index ["postal_id"], name: "index_complaints_on_postal_id"
     t.index ["settlement_id"], name: "index_complaints_on_settlement_id"
     t.index ["state_id"], name: "index_complaints_on_state_id"
-    t.index ["zip_id"], name: "index_complaints_on_zip_id"
   end
 
   create_table "municipalities", force: :cascade do |t|
@@ -49,12 +49,20 @@ ActiveRecord::Schema.define(version: 2021_05_14_200835) do
     t.index ["state_id"], name: "index_municipalities_on_state_id"
   end
 
-  create_table "settlements", force: :cascade do |t|
-    t.bigint "zip_id", null: false
+  create_table "postals", force: :cascade do |t|
+    t.bigint "municipality_id", null: false
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["zip_id"], name: "index_settlements_on_zip_id"
+    t.index ["municipality_id"], name: "index_postals_on_municipality_id"
+  end
+
+  create_table "settlements", force: :cascade do |t|
+    t.bigint "postal_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["postal_id"], name: "index_settlements_on_postal_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -81,20 +89,12 @@ ActiveRecord::Schema.define(version: 2021_05_14_200835) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "zips", force: :cascade do |t|
-    t.bigint "municipality_id", null: false
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["municipality_id"], name: "index_zips_on_municipality_id"
-  end
-
   add_foreign_key "complaints", "categories"
   add_foreign_key "complaints", "municipalities"
+  add_foreign_key "complaints", "postals"
   add_foreign_key "complaints", "settlements"
   add_foreign_key "complaints", "states"
-  add_foreign_key "complaints", "zips"
   add_foreign_key "municipalities", "states"
-  add_foreign_key "settlements", "zips"
-  add_foreign_key "zips", "municipalities"
+  add_foreign_key "postals", "municipalities"
+  add_foreign_key "settlements", "postals"
 end
