@@ -1,6 +1,6 @@
-class CreateZips < ActiveRecord::Migration[6.1]
+class CreatePostals < ActiveRecord::Migration[6.1]
   def change
-    create_table :zips do |t|
+    create_table :postals do |t|
       t.references :municipality, null: false, foreign_key: true
       t.string :name
 

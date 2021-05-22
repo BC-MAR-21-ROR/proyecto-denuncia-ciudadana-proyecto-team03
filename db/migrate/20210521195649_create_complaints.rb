@@ -7,7 +7,7 @@ class CreateComplaints < ActiveRecord::Migration[6.1]
       t.date :date_of_events
       t.references :state, null: false, foreign_key: true
       t.references :municipality, null: false, foreign_key: true
-      t.references :zip, null: false, foreign_key: true
+      t.references :postal, null: false, foreign_key: true
       t.references :settlement, null: false, foreign_key: true
       t.string :street
       t.string :number

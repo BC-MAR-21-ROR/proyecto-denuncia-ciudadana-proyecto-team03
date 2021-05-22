@@ -17,7 +17,7 @@ class ComplaintsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create complaint" do
     assert_difference('Complaint.count') do
-      post complaints_url, params: { complaint: { category_id: @complaint.category_id, date_of_events: @complaint.date_of_events, description: @complaint.description, municipality_id: @complaint.municipality_id, number: @complaint.number, settlement_id: @complaint.settlement_id, state_id: @complaint.state_id, street: @complaint.street, title: @complaint.title, zip_id: @complaint.zip_id } }
+      post complaints_url, params: { complaint: { category_id: @complaint.category_id, date_of_events: @complaint.date_of_events, description: @complaint.description, municipality_id: @complaint.municipality_id, number: @complaint.number, postal_id: @complaint.postal_id, settlement_id: @complaint.settlement_id, state_id: @complaint.state_id, street: @complaint.street, title: @complaint.title } }
     end
 
     assert_redirected_to complaint_url(Complaint.last)
@@ -34,7 +34,7 @@ class ComplaintsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update complaint" do
-    patch complaint_url(@complaint), params: { complaint: { category_id: @complaint.category_id, date_of_events: @complaint.date_of_events, description: @complaint.description, municipality_id: @complaint.municipality_id, number: @complaint.number, settlement_id: @complaint.settlement_id, state_id: @complaint.state_id, street: @complaint.street, title: @complaint.title, zip_id: @complaint.zip_id } }
+    patch complaint_url(@complaint), params: { complaint: { category_id: @complaint.category_id, date_of_events: @complaint.date_of_events, description: @complaint.description, municipality_id: @complaint.municipality_id, number: @complaint.number, postal_id: @complaint.postal_id, settlement_id: @complaint.settlement_id, state_id: @complaint.state_id, street: @complaint.street, title: @complaint.title } }
     assert_redirected_to complaint_url(@complaint)
   end
 
