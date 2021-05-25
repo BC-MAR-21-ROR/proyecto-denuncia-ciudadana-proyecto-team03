@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2021_05_21_195649) do
     t.index ["user_id"], name: "index_interest_places_on_user_id"
   end
 
+  create_table "interest_places", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "zip_id", null: false
+    t.bigint "settlement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["settlement_id"], name: "index_interest_places_on_settlement_id"
+    t.index ["user_id"], name: "index_interest_places_on_user_id"
+    t.index ["zip_id"], name: "index_interest_places_on_zip_id"
+  end
+
   create_table "municipalities", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.string "name"
