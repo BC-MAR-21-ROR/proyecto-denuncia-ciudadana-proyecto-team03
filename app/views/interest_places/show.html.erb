@@ -2,12 +2,12 @@
 
 <p>
   <strong>Postal code:</strong>
-  <%= @interest_place.postal.name %>
+  <%= @interest_place.postal&.name %>
 </p>
 
 <p>
   <strong>Settlement:</strong>
-  <%= @interest_place.settlement.name %>
+  <%= @interest_place.settlement&.name %>
 </p>
 
 <%= link_to 'Edit', edit_interest_place_path(@interest_place) %> |

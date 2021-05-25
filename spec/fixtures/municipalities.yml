@@ -1,0 +1,9 @@
+one:
+  id: 1
+  name: Pachuca
+  state_id: 1
+
+two:
+  id: 2
+  name: Monterrey
+  state_id: 2
