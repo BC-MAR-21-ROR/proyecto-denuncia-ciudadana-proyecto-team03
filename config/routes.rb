@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'zips/:id', to: "zips#show"
+  get 'postals/:id', to: "postals#show"
   resources :interest_places
   resources :complaints
   devise_for :users

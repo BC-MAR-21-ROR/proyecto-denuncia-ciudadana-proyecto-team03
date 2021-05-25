@@ -4,7 +4,7 @@ class InterestPlacesController < ApplicationController
 
   # GET /interest_places or /interest_places.json
   def index
-    @interest_places = current_user.interest_places.includes(:zip, :settlement)
+    @interest_places = current_user.interest_places.includes(:postal, :settlement)
   end
 
   # GET /interest_places/1 or /interest_places/1.json
@@ -65,6 +65,6 @@ class InterestPlacesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def interest_place_params
-      params.require(:interest_place).permit(:user_id, :zip_id, :settlement_id)
+      params.require(:interest_place).permit(:user_id, :postal_id, :settlement_id)
     end
 end

@@ -6,7 +6,7 @@
   <% @complaints.each do |complaint| %>
     <p>
       <%= complaint.category.name %> - <%= complaint.date_of_events %> </br>
-      <%= complaint.state.name %> <%= complaint.municipality.name %> <%= complaint.zip.name %> <%= complaint.settlement.name %> <%= complaint.street %> <%= complaint.number %></br>
+      <%= complaint.state.name %> <%= complaint.municipality.name %> <%= complaint.postal.name %> <%= complaint.settlement.name %> <%= complaint.street %> <%= complaint.number %></br>
       <strong><%= complaint.title %></strong> </br>
       <%= complaint.description %> </br>
     </p>

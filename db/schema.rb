@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 2021_05_21_195649) do
     t.index ["state_id"], name: "index_complaints_on_state_id"
   end
 
+  create_table "interest_places", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "postal_id", null: false
+    t.bigint "settlement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["postal_id"], name: "index_interest_places_on_postal_id"
+    t.index ["settlement_id"], name: "index_interest_places_on_settlement_id"
+    t.index ["user_id"], name: "index_interest_places_on_user_id"
+  end
+
   create_table "municipalities", force: :cascade do |t|
     t.bigint "state_id", null: false
     t.string "name"
@@ -94,6 +105,9 @@ ActiveRecord::Schema.define(version: 2021_05_21_195649) do
   add_foreign_key "complaints", "postals"
   add_foreign_key "complaints", "settlements"
   add_foreign_key "complaints", "states"
+  add_foreign_key "interest_places", "postals"
+  add_foreign_key "interest_places", "settlements"
+  add_foreign_key "interest_places", "users"
   add_foreign_key "municipalities", "states"
   add_foreign_key "postals", "municipalities"
   add_foreign_key "settlements", "postals"

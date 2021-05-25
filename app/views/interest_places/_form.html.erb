@@ -12,8 +12,8 @@
   <% end %>
   <%= form.hidden_field :user_id %>
   <div class="field">
-    <%= form.label :zip_id %>
-    <%= form.collection_select :zip_id, Zip.all, :id, :name, {include_blank: true}, data: {action: "change->interest-places#changeSettlements", 'interest-places-target': 'zip_id'} %>
+    <%= form.label :postal_id %>
+    <%= form.collection_select :postal_id, Postal.all, :id, :name, {include_blank: true}, data: {action: "change->interest-places#changeSettlements", 'interest-places-target': 'postal_id'} %>
   </div>
 
   <div class="field">
