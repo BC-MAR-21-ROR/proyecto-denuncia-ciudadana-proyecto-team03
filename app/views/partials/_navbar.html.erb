@@ -1,8 +1,8 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-    </a>
+    <%= link_to root_path, class: "navbar-item" do %>
+      <%= image_tag "logo.svg", height: "28", alt:"logotipo" %>
+    <% end %>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -13,57 +13,34 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
-
-      <a class="navbar-item">
-        Documentation
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
     </div>
 
     <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
+      <% if user_signed_in? %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <div class="media">
+              <div class="media-content">
+                <%= truncate(current_user.username, length:20, class: '') %>
+              </div>
+            </div>
           </a>
-          <a class="button is-light">
-            Log in
-          </a>
+
+          <div class="navbar-dropdown is-right">
+            <%= link_to "Account configuration", edit_user_registration_path, class: "navbar-item" %>
+            <%= link_to "My interest places", interest_places_path, class: "navbar-item" %>
+            <hr class="navbar-divider">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <%= link_to t(".sign_up"), new_registration_path(resource_name), class: "button is-primary" %>
+            <%= link_to t(".sign_in"), new_session_path(resource_name), class: "button is-light" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </nav>
-
-<% if user_signed_in? %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </br>
-  <%= link_to "Account configuration", edit_user_registration_path %> </br> </br>
-
-  <!--Options-->
-  <%= link_to "Home", root_path %> </br>
-  <%= link_to "My interest places", interest_places_path %> </br>
-<% end %>
