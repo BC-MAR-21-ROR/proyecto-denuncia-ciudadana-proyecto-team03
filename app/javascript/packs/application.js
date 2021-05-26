@@ -14,3 +14,6 @@ ActiveStorage.start()
 
 // stimulus js
 import 'controllers'
+
+// Import fontawesome
+import "@fortawesome/fontawesome-free/css/all"
