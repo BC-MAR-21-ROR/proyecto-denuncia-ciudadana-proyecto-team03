@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   # extra validations
   validates :username, presence: true, uniqueness: true 
+
+  # relations
+  has_many :interest_places
 end

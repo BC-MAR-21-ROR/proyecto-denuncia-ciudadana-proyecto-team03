@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @interest_place.postal&.name %>
+</p>
+
+<p>
+  <strong>Settlement:</strong>
+  <%= @interest_place.settlement&.name %>
+</p>
+
+<%= link_to 'Edit', edit_interest_place_path(@interest_place) %> |
+<%= link_to 'Back', interest_places_path %>

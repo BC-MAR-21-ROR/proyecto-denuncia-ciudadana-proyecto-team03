@@ -1,7 +1,14 @@
-<h1>Home#index</h1>
 <p>Welcome <%= current_user.username %> <%= current_user.user_type %></p>
 
-<% if user_signed_in? %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </br>
-  <%= link_to "Account configuration", edit_user_registration_path %>
-<% end %>
+<div>
+  <h2>Complaints in my places of interest</h2>
+  <%= 'There are no complaints yet, add some other places of interest.' if @complaints.length.zero? %>
+  <% @complaints.each do |complaint| %>
+    <p>
+      <%= complaint.category.name %> - <%= complaint.date_of_events %> </br>
+      <%= complaint.state.name %> <%= complaint.municipality.name %> <%= complaint.postal.name %> <%= complaint.settlement.name %> <%= complaint.street %> <%= complaint.number %></br>
+      <strong><%= complaint.title %></strong> </br>
+      <%= complaint.description %> </br>
+    </p>
+  <% end %>
+</div>

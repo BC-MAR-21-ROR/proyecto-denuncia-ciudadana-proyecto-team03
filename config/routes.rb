@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'postals/:id', to: "postals#show"
+  resources :interest_places
   resources :complaints
   devise_for :users
   devise_scope :user do

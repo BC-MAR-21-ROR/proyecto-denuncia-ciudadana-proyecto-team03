@@ -1,0 +1,19 @@
+one:
+  id: 1
+  name: Benito Juarez
+  postal_id: 1
+
+two:
+  id: 2
+  name: Emiliano Zapata
+  postal_id: 2
+
+three:
+  id: 3
+  name: Porfirio Diaz
+  postal_id: 2
+
+four:
+  id: 4
+  name: Justo Sierra
+  postal_id: 2
