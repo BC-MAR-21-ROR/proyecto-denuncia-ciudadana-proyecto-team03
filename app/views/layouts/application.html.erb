@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProyectoDenunciaCiudadanaProyectoTeam03</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Proyecto Denuncia Ciudadana Proyecto Team 03</title>
+    <meta name="description" content="Lorem ipsum dolor sit, amet consectetur adipisicing elit">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%#= favicon_link_tag 'favicon.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,14 +16,7 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </br>
-      <%= link_to "Account configuration", edit_user_registration_path %> </br> </br>
-
-      <!--Options-->
-      <%= link_to "Home", root_path %> </br>
-      <%= link_to "My interest places", interest_places_path %> </br>
-    <% end %>
     <%= yield %>
+    <%= render 'partials/footer' %>
   </body>
 </html>
