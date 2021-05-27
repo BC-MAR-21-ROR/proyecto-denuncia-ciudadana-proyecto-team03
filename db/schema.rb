@@ -100,14 +100,6 @@ ActiveRecord::Schema.define(version: 2021_05_21_195649) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "zips", force: :cascade do |t|
-    t.bigint "municipality_id", null: false
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["municipality_id"], name: "index_zips_on_municipality_id"
-  end
-
   add_foreign_key "complaints", "categories"
   add_foreign_key "complaints", "municipalities"
   add_foreign_key "complaints", "postals"
