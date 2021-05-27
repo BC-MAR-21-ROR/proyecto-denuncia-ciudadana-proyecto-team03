@@ -4,12 +4,42 @@
       <%= image_tag "undraw_online_ad_re_ol62.svg", alt:"" %>
     </figure>
   </div>
+
   <div class="column is-6 is-offset-1">
     <h1 class="title">
       <%= t('.resend_confirmation_instructions') %>
     </h1>
     <hr>
-    <%= render 'form' %>
+
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email, class: "label" %>
+        <div class="control has-icons-left">
+          <%= f.email_field :email,
+                            required: true,
+                            autofocus: true,
+                            autocomplete: "email",
+                            value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                            class: "input",
+                            placeholder: "example@email.com",
+                            pattern: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
+                            style: "text-transform:lowercase",
+                            onkeyup: "javascript:this.value=this.value.toLowerCase();" %>
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <%= f.submit t('.resend_confirmation_instructions'), class: "button is-link is-fullwidth" %>
+        </div>
+      </div>
+    <% end %>
+
     <hr>
     <div class="">
       <%= render "devise/shared/links" %>
