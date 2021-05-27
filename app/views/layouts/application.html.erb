@@ -16,9 +16,16 @@
   </head>
 
   <body>
-    <%= render 'partials/navbar' %>
-    <%= render 'partials/notification' %>
-    <%= yield %>
+    <div class="header">
+      <%= render 'partials/navbar' %>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <%= render 'partials/notification' %>
+        <main><%= yield %></main>
+      </div>
+    </section>
     <%= render 'partials/footer' %>
   </body>
 </html>
