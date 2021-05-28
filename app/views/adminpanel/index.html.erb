@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users</title>
+</head>
+<body>
+  <p id="notice"><%= notice %></p>
+    <table>
+      <tr>
+        <th>User name</th>
+        <th>User type</th>
+        <th>Email</th>
+        <th>Delete</th>
+        <th>Edit</th>
+      </tr>
+      <% @adminpanel.each do |ad| %>
+        <tr>
+          <td><%= ad.username %></td>
+          <td><%= ad.user_type %></td>
+          <td><%= ad.email %></td>
+          <td><%= link_to "Delete", adminpanel_path(id: ad.id), method: :delete, data: { confirm: 'Are you sure you want to delete this user?' } %></td>
+          <td><%= link_to "Edit", edit_adminpanel_path(id: ad.id) %></td>
+        </tr>
+      <% end %>
+  </table>
+</body>
+</html>
