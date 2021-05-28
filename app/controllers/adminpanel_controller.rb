@@ -1,9 +1,7 @@
-# Administration Panel
 # frozen_string_literal: false
 
 # Administration user and administration panel
-class AdminpanelController < ApplicationController
-  before_action :authenticate_user!
+class AdminpanelController < ApplicationController # Administration Panel
   before_action :authenticate_admin?, only: %i[index show edit update destroy]
   before_action :set_users, only: %i[edit update destroy]
 
