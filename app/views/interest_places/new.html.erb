@@ -1,5 +1,7 @@
-<h1>New Interest Place</h1>
-
-<%= render 'form', interest_place: @interest_place %>
-
-<%= link_to 'Back', interest_places_path %>
+<div class="columns is-mobile">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <h1 class="title"><%= t('.new_interest_place') %></h1>
+    <hr>
+    <%= render 'form', interest_place: @interest_place %>
+  </div>
+</div>
