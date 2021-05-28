@@ -1,4 +1,5 @@
 class ComplaintsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
   before_action :set_complaint, only: %i[ show edit update destroy ]
 
   # GET /complaints or /complaints.json
