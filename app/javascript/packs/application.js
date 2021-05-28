@@ -17,3 +17,7 @@ import 'controllers'
 
 // Import fontawesome
 import "@fortawesome/fontawesome-free/css/all"
+
+// custom JS
+require("custom/clickdelete")
+require("custom/navbar")

@@ -1,9 +1,7 @@
-<div class="columns is-mobile">
+<div class="columns">
   <div class="column is-three-fifths is-offset-one-fifth">
-    <form class="box">
-      <h1 class="title"><%= t('.new_complaint') %></h1>
-      <hr>
-      <%= render 'form', complaint: @complaint %>
-    </form>
+    <h1 class="title"><%= t('.new_complaint') %></h1>
+    <hr>
+    <%= render 'form', complaint: @complaint %>
   </div>
 </div>
