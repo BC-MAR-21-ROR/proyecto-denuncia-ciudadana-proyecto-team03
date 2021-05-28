@@ -1,14 +1,10 @@
 class InterestPlacesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_interest_place, only: %i[ show edit update destroy ]
+  before_action :set_interest_place, only: %i[ edit update destroy ]
 
   # GET /interest_places or /interest_places.json
   def index
     @interest_places = current_user.interest_places.includes(:postal, :settlement)
-  end
-
-  # GET /interest_places/1 or /interest_places/1.json
-  def show
   end
 
   # GET /interest_places/new

@@ -1,27 +1,50 @@
-<%= form_with(model: interest_place, data: {controller: 'interest-places'}) do |form| %>
+<%= form_with(model: interest_place, data: {controller: 'interest-places'}, class: "box") do |form| %>
   <% if interest_place.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(interest_place.errors.count, "error") %> prohibited this interest_place from being saved:</h2>
-
-      <ul>
-        <% interest_place.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <article id="error_explanation" class="message is-danger">
+      <div class="message-header">
+        <p>
+          <%= pluralize(interest_place.errors.count, t(".error")) %>
+        </p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        <ul>
+          <% interest_place.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    </article>
   <% end %>
+
   <%= form.hidden_field :user_id %>
-  <div class="field">
-    <%= form.label :postal_id %>
-    <%= form.collection_select :postal_id, Postal.all, :id, :name, {include_blank: true}, data: {action: "change->interest-places#changeSettlements", 'interest-places-target': 'postal_id'} %>
-  </div>
 
   <div class="field">
-    <%= form.label :settlement_id %>
-    <%= form.collection_select :settlement_id, [], :nil, :nil, {include_blank: true}, data: {'interest-places-target': 'settlement_id', value: "#{interest_place.settlement_id}"} %>
+    <%= form.label :postal_id, class:"label" %>
+    <div class="control">
+      <div class="select is-fullwidth">
+        <%= form.collection_select :postal_id, Postal.all, :id, :name, {include_blank: true}, data: {action: "change->interest-places#changeSettlements", 'interest-places-target': 'postal_id'} %>
+      </div>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+
+  <div class="field">
+    <%= form.label :settlement_id, class:"label" %>
+    <div class="control">
+      <div class="select is-fullwidth">
+        <%= form.collection_select :settlement_id, [], :nil, :nil, {include_blank: true}, data: {'interest-places-target': 'settlement_id', value: "#{interest_place.settlement_id}"} %>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit class:"button is-link" %>
+    </div>
+    <div class="control">
+      <%= link_to t('.cancel'), interest_places_path, class:"button is-light" %>
+    </div>
   </div>
 <% end %>

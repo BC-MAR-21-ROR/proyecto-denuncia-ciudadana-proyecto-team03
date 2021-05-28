@@ -1,67 +1,198 @@
-<%= form_with(model: complaint) do |form| %>
+<%= form_with(model: complaint, class: "box") do |form| %>
   <% if complaint.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
-
-      <ul>
-        <% complaint.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <article id="error_explanation" class="message is-danger">
+      <div class="message-header">
+        <p>
+          <%= pluralize(complaint.errors.count, t(".error")) %>
+        </p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        <ul>
+          <% complaint.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    </article>
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :title, class:"label" %>
+    <div class="control">
+      <%= form.text_field :title,
+                          class:"input",
+                          autofocus: true,
+                          required: true,
+                          minlength: "5",
+                          placeholder: "Nombre...",
+                          maxlength: "50" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :description, class:"label" %>
+    <div class="control">
+      <%= form.text_area  :description,
+                          class: "textarea",
+                          required: true,
+                          placeholder: "Describe lo que ocurrio...",
+                          minlength: "5" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
+    <%= form.label :category_id, class:"label" %>
+    <div class="control has-icons-left">
+      <div class="select is-fullwidth">
+        <%= form.collection_select  :category_id,
+                                    Category.order(:name),
+                                    :id,
+                                    :name,
+                                    prompt: "Selecciona la categoria" %>
+      </div>
+      <span class="icon is-left">
+        <i class="fas fa-tag"></i>
+      </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :date_of_events %>
-    <%= form.date_select :date_of_events %>
+    <%= form.label :date_of_events, class:"label" %>
+    <div class="control">
+      <%= form.date_field  :date_of_events,
+                            class: "input",
+                            required: true,
+                            max: Date.today %>
+    </div>
+  </div>
+
+  <br>
+  <h2 class="subtitle">
+    <strong><%= t('.location') %></strong>
+  </h2>
+  <hr>
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6">
+            <div class="field">
+              <%= form.label :state_id, class:"label" %>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <%= form.collection_select  :state_id,
+                                              State.order(:name),
+                                              :id,
+                                              :name,
+                                              prompt: "Selecciona un estado" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="field">
+              <%= form.label :municipality_id, class:"label" %>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <%= form.collection_select  :municipality_id,
+                                              Municipality.order(:name),
+                                              :id,
+                                              :name,
+                                              prompt: "Selecciona una municipalidad" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6">
+            <div class="field">
+              <%= form.label :postal_id, class:"label" %>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <%= form.collection_select  :postal_id,
+                                              Postal.order(:name),
+                                              :id,
+                                              :name,
+                                              prompt: "Selecciona un codigo postal" %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="field">
+              <%= form.label :settlement_id, class:"label" %>
+              <div class="control">
+                <div class="select is-fullwidth">
+                  <%= form.collection_select  :settlement_id,
+                                              Settlement.order(:name),
+                                              :id,
+                                              :name,
+                                              prompt: "Selecciona un asentamiento" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6">
+            <div class="field">
+              <%= form.label :street, class:"label" %>
+              <div class="control">
+                <%= form.text_field :street,
+                                    class:"input" %>
+              </div>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="field">
+              <%= form.label :number, class:"label" %>
+              <div class="control">
+                <%= form.text_field :number,
+                                    class:"input" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :state_id %>
-    <%= form.text_field :state_id %>
+    <label class="label">Publicacion anonima</label>
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="question">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="question">
+        No
+      </label>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :municipality_id %>
-    <%= form.text_field :municipality_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :postal_id %>
-    <%= form.text_field :postal_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :settlement_id %>
-    <%= form.text_field :settlement_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <hr>
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit class:"button is-link" %>
+    </div>
+    <div class="control">
+      <%= link_to t('.cancel'), complaints_path, class:"button is-light" %>
+    </div>
   </div>
 <% end %>

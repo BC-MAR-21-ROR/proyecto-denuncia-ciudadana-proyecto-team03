@@ -1,5 +1,7 @@
-<h1>New Complaint</h1>
-
-<%= render 'form', complaint: @complaint %>
-
-<%= link_to 'Back', complaints_path %>
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <h1 class="title"><%= t('.new_complaint') %></h1>
+    <hr>
+    <%= render 'form', complaint: @complaint %>
+  </div>
+</div>

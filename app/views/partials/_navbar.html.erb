@@ -1,0 +1,49 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <%= link_to root_path, class: "navbar-item" do %>
+        <%= image_tag "logo.svg", height: "28", alt:"logotipo" %>
+      <% end %>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <%= link_to t(".Complaint"), complaints_path, class: "navbar-item" %>
+      </div>
+
+      <div class="navbar-end">
+        <% if user_signed_in? %>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              <div class="media">
+                <div class="media-content">
+                  <%= truncate(current_user.username, length:20, class: '') %>
+                </div>
+              </div>
+            </a>
+
+            <div class="navbar-dropdown is-right">
+              <%= link_to "Account configuration", edit_user_registration_path, class: "navbar-item" %>
+              <%= link_to "My interest places", interest_places_path, class: "navbar-item" %>
+              <hr class="navbar-divider">
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="navbar-item">
+            <div class="buttons">
+              <%= link_to t(".sign_up"), new_registration_path(resource_name), class: "button is-danger" %>
+              <%= link_to t(".sign_in"), new_session_path(resource_name), class: "button is-light" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

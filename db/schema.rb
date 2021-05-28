@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_195649) do
+ActiveRecord::Schema.define(version: 2021_05_27_225447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,11 +34,13 @@ ActiveRecord::Schema.define(version: 2021_05_21_195649) do
     t.string "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_complaints_on_category_id"
     t.index ["municipality_id"], name: "index_complaints_on_municipality_id"
     t.index ["postal_id"], name: "index_complaints_on_postal_id"
     t.index ["settlement_id"], name: "index_complaints_on_settlement_id"
     t.index ["state_id"], name: "index_complaints_on_state_id"
+    t.index ["user_id"], name: "index_complaints_on_user_id"
   end
 
   create_table "interest_places", force: :cascade do |t|
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_195649) do
   add_foreign_key "complaints", "postals"
   add_foreign_key "complaints", "settlements"
   add_foreign_key "complaints", "states"
+  add_foreign_key "complaints", "users"
   add_foreign_key "interest_places", "postals"
   add_foreign_key "interest_places", "settlements"
   add_foreign_key "interest_places", "users"
