@@ -17,6 +17,14 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+# The ultimate pagination ruby gem
+gem 'pagy'
+# authetication
+gem 'devise'
+gem 'devise-i18n'
+# Object-based searching
+gem 'ransack', github: 'activerecord-hackery/ransack'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -31,7 +39,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # test 
+  # test
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rexml'
 end
@@ -49,6 +57,10 @@ group :development do
   gem 'figaro'
   # to catch the emails in the browser
   gem "letter_opener"
+  # Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard'
+  # Guard::LiveReload automatically reloads your browser when 'view' files are modified.
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
 end
 
 group :test do
@@ -61,7 +73,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# authetication 
-gem 'devise'
-gem 'devise-i18n'

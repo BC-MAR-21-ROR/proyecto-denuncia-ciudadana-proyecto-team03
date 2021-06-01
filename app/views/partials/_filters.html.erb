@@ -1,0 +1,63 @@
+<%= search_form_for @q do |f| %>
+<nav class="panel">
+  <p class="panel-heading">
+    Repositories
+  </p>
+  <div class="panel-block">
+    <p class="control has-icons-left">
+      <%= f.search_field :title, class: "input", placeholder: "Busca por titulo" %>
+      <span class="icon is-left">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </span>
+    </p>
+  </div>
+  <div class="panel-block">
+    <div class="field">
+      <%= f.label :category_id, class:"label" %>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <%= f.collection_select :category_id_eq,
+                                  Category.order(:name),
+                                  :id,
+                                  :name,
+                                  prompt: "Seleciona una" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-block">
+    <div class="field">
+      <%= f.label :state_id, class:"label" %>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <%= f.collection_select :state_id_eq,
+                                  State.order(:name),
+                                  :id,
+                                  :name,
+                                  prompt: "Seleciona una" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-block">
+    <div class="field">
+      <%= f.label :municipality_id, class:"label" %>
+      <div class="control">
+        <div class="select is-fullwidth">
+          <%= f.collection_select :municipality_id_eq,
+                                  Municipality.order(:name),
+                                  :id,
+                                  :name,
+                                  prompt: "Seleciona una" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-block">
+    <%= f.submit "Aplicar filtros", class: "button is-link is-fullwidth" %>
+  </div>
+  <div class="panel-block">
+    <%= link_to t('.reset'), complaints_path, class: "button is-link is-outlined is-fullwidth" %>
+  </div>
+</nav>
+<% end %>

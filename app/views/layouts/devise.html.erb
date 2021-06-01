@@ -16,19 +16,11 @@
   </head>
 
   <body>
-    <div class="header">
-      <%= render 'partials/navbar' %>
-    </div>
-
-    <section class="section">
-      <div class="container">
-        <%= render 'partials/notification' %>
-        <main>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
           <%= yield %>
-        </main>
+        </div>
       </div>
     </section>
-
-    <%#= render 'partials/footer' %>
-  </body>
 </html>

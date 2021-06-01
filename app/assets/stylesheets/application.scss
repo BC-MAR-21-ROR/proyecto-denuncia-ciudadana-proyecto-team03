@@ -14,5 +14,27 @@
  *= require_self
  */
 
- // Import Bulma
- @import 'bulma/bulma';
+// Import Bulma
+@import 'bulma/bulma';
+
+// Class
+.header {
+  padding: 1.7rem 1.5rem;
+}
+
+.img-welcome {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    image-url("welcome-denuncia.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+// Id
+// Id
+#stick {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+}

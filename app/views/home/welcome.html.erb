@@ -1,0 +1,61 @@
+<section class="hero is-dark is-fullheight img-welcome">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to root_path, class: "navbar-item" do %>
+            <%= image_tag "logo-white.svg", height: "28", alt:"logotipo" %>
+          <% end %>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <span class="navbar-item">
+              <%= link_to new_user_registration_path, class: "button is-dark is-inverted" do %>
+                <span class="icon">
+                  <i class="fas fa-user-plus"></i>
+                </span>
+                <span><%= t(".sign_up") %></span>
+              <% end %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-6">
+          <p class="title">
+            No te quedes callado denuncia!
+          </p>
+          <p class="subtitle">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ea temporibus, pariatur ut sapiente dolore voluptatem provident id ipsa?
+          </p>
+          <%= link_to 'Mira las denuncias!', complaints_path, class: "button is-danger is-large" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <div class="hero-foot">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Proyecto Denuncia Ciudadana Proyecto Team 03</strong>
+        Actividad proporcionada por
+        <a href="http://www.brightcoders.com/">BrightCoders</a>
+        . Repositorio en
+        <a href="https://github.com/BC-MAR-21-ROR/proyecto-denuncia-ciudadana-proyecto-team03">Github</a>
+      </p>
+    </div>
+  </div>
+</section>
