@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'postals/:id', to: "postals#show"
 
   resources :interest_places
-  resources :complaints
+  resources :complaints do
+    resources :comments, only: %i[create destroy]
+  end
 	resources :adminpanel
 
   post 'like/:id', to: 'likes#create', as: 'like'
