@@ -1,11 +1,12 @@
 class ComplaintsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_complaint, only: %i[ show edit update destroy ]
+  include Pagy::Backend
 
   # GET /complaints or /complaints.json
   def index
     @page_title = 'Proyecto denuncia ciudadana'
-    @complaints = Complaint.all
+    @pagy, @complaints = pagy(Complaint.all.order('created_at DESC'), page: params[:page])
   end
 
   # GET /complaints/1 or /complaints/1.json
