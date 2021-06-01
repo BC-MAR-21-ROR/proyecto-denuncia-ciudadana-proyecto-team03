@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'states/:id', to: "states#show"
+  get 'municipalities/:id', to: "municipalities#show"
   get 'postals/:id', to: "postals#show"
+
   resources :interest_places
   resources :complaints
 	resources :adminpanel
