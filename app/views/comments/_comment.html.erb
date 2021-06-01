@@ -1,0 +1,17 @@
+<% if comment.id %>
+  <article class="message is-info" id="comment_<%= comment.id unless comment.id.blank? %>">
+    <div class="message-header">
+      <% if comment.anonymous %>
+      Anonimo - <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
+      <% else %>
+      <%= comment.user == nil ? 'nn' : comment.user.username.capitalize %> - <%= time_ago_in_words(comment.created_at) unless comment.created_at.blank? %> ago
+      <% end %>
+      <% if current_user.id == comment.user.id %>
+        <%= link_to 'Eliminar', complaint_comment_path(@complaint, comment), method: :delete, remote: true %>
+      <% end %>
+    </div>
+    <div class="message-body">
+      <%= comment.content %>
+    </div>
+</article>
+<% end %>

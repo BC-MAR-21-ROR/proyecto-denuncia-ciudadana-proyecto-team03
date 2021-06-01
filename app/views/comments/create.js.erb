@@ -1,0 +1,4 @@
+var comments = document.getElementById('comments_count')
+var count = parseInt(comments.innerHTML) + 1
+var comment_list = document.getElementById('comment_list')
+comment_list.append("<%= j render 'comments/comment', comment: @comment %>")

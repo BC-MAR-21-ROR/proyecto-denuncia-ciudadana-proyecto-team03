@@ -1,7 +1,8 @@
 class Complaint < ApplicationRecord
   acts_as_votable
-  
+
   has_many_attached :evidences
+  has_many :comments
 
   belongs_to :category
   belongs_to :state

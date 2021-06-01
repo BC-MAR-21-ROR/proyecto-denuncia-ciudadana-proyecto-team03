@@ -15,4 +15,5 @@ class User < ApplicationRecord
   # relations
   has_many :interest_places
   has_many :complaints
+  has_many :comments
 end
