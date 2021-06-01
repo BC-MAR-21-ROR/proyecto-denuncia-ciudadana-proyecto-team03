@@ -31,14 +31,18 @@
             <div class="navbar-dropdown is-right">
               <%= link_to "Account configuration", edit_user_registration_path, class: "navbar-item" %>
               <%= link_to "My interest places", interest_places_path, class: "navbar-item" %>
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
-              <hr class="navbar-divider">
-              <div class="navbar-item">
-                <%= t('.Admin') %>
-              </div>
               <% if current_user.user_type == 'administrator' %>
-                <%= link_to "Admin to Users", adminpanel_index_path, class: "navbar-item" %>
+                <%= link_to adminpanel_index_path, class: "navbar-item" do %>
+                  <span class="icon-text">
+                    <span class="icon">
+                      <i class="fas fa-users-cog"></i>
+                    </span>
+                    <span><%= t('.admin_users') %></span>
+                  </span>
+                <% end %>
               <% end %>
+              <hr class="navbar-divider">
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
             </div>
           </div>
         <% else %>

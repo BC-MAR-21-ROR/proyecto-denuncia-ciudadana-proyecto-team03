@@ -14,5 +14,15 @@
  *= require_self
  */
 
- // Import Bulma
- @import 'bulma/bulma';
+// Import Bulma
+@import 'bulma/bulma';
+
+
+.img-welcome {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    image-url("welcome-denuncia.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
