@@ -14,10 +14,10 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <%= link_to t(".Complaint"), complaints_path, class: "navbar-item" %>
       </div>
 
       <div class="navbar-end">
+        <%= link_to t(".Complaint"), complaints_path, class: "navbar-item" %>
         <% if user_signed_in? %>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
@@ -48,8 +48,8 @@
         <% else %>
           <div class="navbar-item">
             <div class="buttons">
-              <%= link_to t(".sign_up"), new_user_registration_path, class: "button is-danger" %>
               <%= link_to t(".sign_in"), new_user_session_path, class: "button is-light" %>
+              <%= link_to t(".sign_up"), new_user_registration_path, class: "button is-danger" %>
             </div>
           </div>
         <% end %>

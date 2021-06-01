@@ -4,6 +4,7 @@ class ComplaintsController < ApplicationController
 
   # GET /complaints or /complaints.json
   def index
+    @page_title = 'Proyecto denuncia ciudadana'
     @complaints = Complaint.all
   end
 

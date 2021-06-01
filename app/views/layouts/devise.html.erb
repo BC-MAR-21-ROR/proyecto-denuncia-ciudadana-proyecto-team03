@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= @page_title %></title>
+    <meta name="description" content="Lorem ipsum dolor sit, amet consectetur adipisicing elit">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%= favicon_link_tag 'favicon.png' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
+</html>
