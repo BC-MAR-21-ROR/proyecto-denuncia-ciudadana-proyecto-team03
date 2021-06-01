@@ -1,4 +1,6 @@
 class Complaint < ApplicationRecord
+  has_many_attached :evidences
+
   belongs_to :category
   belongs_to :state
   belongs_to :municipality
