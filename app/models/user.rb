@@ -4,12 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  acts_as_voter
   enum user_type: %i[user administrator]
 
   include PermissionsConcern
 
   # extra validations
-  validates :username, presence: true, uniqueness: true 
+  validates :username, presence: true, uniqueness: true
 
   # relations
   has_many :interest_places

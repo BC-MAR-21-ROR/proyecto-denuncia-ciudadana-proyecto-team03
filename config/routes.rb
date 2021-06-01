@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :complaints
 	resources :adminpanel
 
+  post 'like/:id', to: 'likes#create', as: 'like'
+  delete 'unlike/:id', to: 'likes#destroy', as: 'unlike'
+
 	# Panel
 	get '/adminpanel/:id/edit', :to => 'adminpanel#edit', :as => :user
 	patch '/adminpanel/:id/edit' => "adminpanel#update", :as => "adminpanel/update"

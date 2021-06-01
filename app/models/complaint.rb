@@ -1,4 +1,6 @@
 class Complaint < ApplicationRecord
+  acts_as_votable
+  
   has_many_attached :evidences
 
   belongs_to :category
