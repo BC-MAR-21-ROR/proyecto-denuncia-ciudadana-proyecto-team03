@@ -49,6 +49,10 @@ group :development do
   gem 'figaro'
   # to catch the emails in the browser
   gem "letter_opener"
+  # Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard'
+  # Guard::LiveReload automatically reloads your browser when 'view' files are modified.
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
 end
 
 group :test do
