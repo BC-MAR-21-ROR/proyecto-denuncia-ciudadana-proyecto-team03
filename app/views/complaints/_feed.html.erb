@@ -1,0 +1,25 @@
+<% @complaints.each do |complaint| %>
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="subtitle is-6"><%= "@" + truncate(complaint.user.username, length: 50) %></p>
+          <p class="title is-4">
+            <%= link_to (truncate(complaint.title, length: 50)), complaint, class: "has-text-dark" %>
+          </p>
+          <p class="subtitle is-6">
+          <%= complaint.category.name if complaint.category %></p>
+          <%= complaint.settlement.name if complaint.settlement %>
+          <%= "- " + complaint.municipality.name if complaint.municipality %>
+          <%= "- " + complaint.state.name if complaint.state %>
+        </div>
+      </div>
+
+      <div class="content">
+        <%= truncate(complaint.description, length: 250) %>
+        <%= link_to "ver mas", complaint %>
+        <br>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="subtitle is-6"><%= "@" + @complaint.user.username %></p>
+        <p class="title is-4">
+          <%= @complaint.title %>
+        </p>
+        <p class="subtitle is-6">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-tag"></i>
+            </span>
+            <span><%= @complaint.category.name if @complaint.category %></span>
+          </span>
+        </p>
+        <p class="title is-6">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </span>
+            <span>
+              <%= @complaint.number %>
+              <%= @complaint.street %>
+              <%= "- " + @complaint.settlement.name if @complaint.settlement %>
+              <%= "- " + @complaint.municipality.name if @complaint.municipality %>
+              <%= "- " + @complaint.state.name if @complaint.state %>
+            </span>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="content">
+      <%= @complaint.description %>
+      <br>
+      <br>
+      <p class="subtitle is-6">
+        <strong>Fecha de los eventos:</strong>
+        <%= (@complaint.date_of_events) %>
+      </p>
+    </div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-heart"></i></span>
+        </a>
+      </div>
+      <div class="level-right">
+        <%= link_to edit_complaint_path(@complaint), class: "level-item" do %>
+          <span class="icon">
+            <i class="fas fa-edit"></i>
+          </span>
+        <% end %>
+        <%= link_to @complaint, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class="icon-text has-text-danger">
+            <span class="icon">
+              <i class="fas fa-trash-alt"></i>
+            </span>
+          </span>
+        <% end %>
+      </div>
+    </nav>
+    </div>
+  </div>
+</div>

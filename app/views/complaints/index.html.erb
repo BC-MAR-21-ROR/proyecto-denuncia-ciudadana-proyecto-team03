@@ -1,45 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="columns">
+  <div class="column is-3">
+    <div class="filters" id="stick">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat esse maxime tenetur a molestiae veritatis alias doloribus cum pariatur ipsa. Nulla nihil at commodi recusandae nesciunt voluptates quo nemo consequatur.
+    </div>
 
-<h1>Complaints</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Date of events</th>
-      <th>State</th>
-      <th>Municipality</th>
-      <th>Postal</th>
-      <th>Settlement</th>
-      <th>Street</th>
-      <th>Number</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @complaints.each do |complaint| %>
-      <tr>
-        <td><%= complaint.title %></td>
-        <td><%= complaint.description %></td>
-        <td><%= complaint.category_id %></td>
-        <td><%= complaint.date_of_events %></td>
-        <td><%= complaint.state_id %></td>
-        <td><%= complaint.municipality_id %></td>
-        <td><%= complaint.postal_id %></td>
-        <td><%= complaint.settlement_id %></td>
-        <td><%= complaint.street %></td>
-        <td><%= complaint.number %></td>
-        <td><%= link_to 'Show', complaint %></td>
-        <td><%= link_to 'Edit', edit_complaint_path(complaint) %></td>
-        <td><%= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Complaint', new_complaint_path %>
+  </div>
+  <div class="column is-8 is-offset-1">
+    <div class="field is-grouped is-grouped-right">
+      <div class="control">
+        <%= link_to 'Nueva denuncia', new_complaint_path, class: "button is-danger is-medium" %>
+      </div>
+    </div>
+    <%= render 'feed' %>
+  </div>
+</div>

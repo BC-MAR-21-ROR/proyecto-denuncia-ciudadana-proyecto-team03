@@ -1,54 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="columns">
+  <div class="column is-10 is-offset-1">
+    <%= render 'post' %>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @complaint.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @complaint.description %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @complaint.category_id %>
-</p>
-
-<p>
-  <strong>Date of events:</strong>
-  <%= @complaint.date_of_events %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @complaint.state_id %>
-</p>
-
-<p>
-  <strong>Municipality:</strong>
-  <%= @complaint.municipality_id %>
-</p>
-
-<p>
-  <strong>Postal:</strong>
-  <%= @complaint.postal_id %>
-</p>
-
-<p>
-  <strong>Settlement:</strong>
-  <%= @complaint.settlement_id %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @complaint.street %>
-</p>
-
-<p>
-  <strong>Number:</strong>
-  <%= @complaint.number %>
-</p>
-
-<%= link_to 'Edit', edit_complaint_path(@complaint) %> |
-<%= link_to 'Back', complaints_path %>
