@@ -7,6 +7,10 @@ class ComplaintsController < ApplicationController
   def index
     @page_title = 'Proyecto denuncia ciudadana'
     @pagy, @complaints = pagy(Complaint.all.order('created_at DESC'), page: params[:page])
+
+    ## Filters
+    @q = Complaint.ransack(params[:q])
+    @pagy, @complaints = pagy(@q.result.all.order('created_at DESC'), page: params[:page])
   end
 
   # GET /complaints/1 or /complaints/1.json

@@ -46,17 +46,22 @@
         </a>
       </div>
       <div class="level-right">
-        <%= link_to edit_complaint_path(@complaint), class: "level-item" do %>
-          <span class="icon">
-            <i class="fas fa-edit"></i>
-          </span>
-        <% end %>
-        <%= link_to @complaint, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <span class="icon-text has-text-danger">
+
+
+        <% if user_signed_in? && (current_user.id == @complaint.user_id) %>
+          <%= link_to edit_complaint_path(@complaint), class: "level-item" do %>
             <span class="icon">
-              <i class="fas fa-trash-alt"></i>
+              <i class="fas fa-edit"></i>
             </span>
-          </span>
+          <% end %>
+          <%= link_to @complaint, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="icon-text has-text-danger">
+              <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+              </span>
+            </span>
+          <% end %>
+        <% else %>
         <% end %>
       </div>
     </nav>
