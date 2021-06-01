@@ -41,14 +41,6 @@ RSpec.describe "/interest_places", type: :request do
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
-      interest_place = InterestPlace.create! valid_attributes
-      get interest_place_url(interest_place)
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET /new" do
     it "renders a successful response" do
       get new_interest_place_url
