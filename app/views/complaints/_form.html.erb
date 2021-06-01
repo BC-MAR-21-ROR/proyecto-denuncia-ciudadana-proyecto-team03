@@ -1,4 +1,4 @@
-<%= form_with(model: complaint, class: "box") do |form| %>
+<%= form_with(model: complaint, class: "box", data:{controller:'complaints'}) do |form| %>
   <% if complaint.errors.any? %>
     <article id="error_explanation" class="message is-danger">
       <div class="message-header">
@@ -84,7 +84,8 @@
                                               State.order(:name),
                                               :id,
                                               :name,
-                                              prompt: "Selecciona un estado" %>
+                                              {prompt: "Selecciona un estado"}, 
+                                              {data:{'complaints-target': 'state_id', action: 'change->complaints#changeChildOptions', type:'state'}} %>
                 </div>
               </div>
             </div>
@@ -95,10 +96,11 @@
               <div class="control">
                 <div class="select is-fullwidth">
                   <%= form.collection_select  :municipality_id,
-                                              Municipality.order(:name),
-                                              :id,
-                                              :name,
-                                              prompt: "Selecciona una municipalidad" %>
+                                              [],
+                                              :to_s,
+                                              :to_s,
+                                              {prompt: "Selecciona un municipio"},
+                                              {data:{'complaints-target': 'municipality_id', action: 'change->complaints#changeChildOptions', type:'municipality', value: complaint.municipality_id}} %>
                 </div>
               </div>
             </div>
@@ -118,10 +120,11 @@
               <div class="control">
                 <div class="select is-fullwidth">
                   <%= form.collection_select  :postal_id,
-                                              Postal.order(:name),
-                                              :id,
-                                              :name,
-                                              prompt: "Selecciona un codigo postal" %>
+                                              [],
+                                              :to_s,
+                                              :to_s,
+                                              {prompt: "Selecciona un codigo postal"},
+                                              {data:{'complaints-target': 'postal_id', action: 'change->complaints#changeChildOptions', type:'postal', value: complaint.postal_id}} %>
                 </div>
               </div>
             </div>
@@ -132,10 +135,11 @@
               <div class="control">
                 <div class="select is-fullwidth">
                   <%= form.collection_select  :settlement_id,
-                                              Settlement.order(:name),
-                                              :id,
-                                              :name,
-                                              prompt: "Selecciona un asentamiento" %>
+                                              [],
+                                              :to_s,
+                                              :to_s,
+                                              {prompt: "Selecciona un asentamiento"},
+                                              {data:{'complaints-target': 'settlement_id', value: complaint.settlement_id}} %>
                 </div>
               </div>
             </div>
