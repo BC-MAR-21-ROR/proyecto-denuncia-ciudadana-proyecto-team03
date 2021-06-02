@@ -1,0 +1,16 @@
+<%= form_with model: [ @complaint, @complaint.comments.build ], local: false do |form| %>
+  <div class="field">
+    <%= form.label :contenido, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :content, class: 'textarea' %>
+    </div>
+  </div>
+
+
+  <label class="checkbox">
+    <%= form.check_box :anonymous, {class: 'checkbox'}, true, false %> Anonimo
+  </label>
+  <div class="control">
+    <%= form.submit 'commentar', class: "button is-link" %>
+  </div>
+<% end %>

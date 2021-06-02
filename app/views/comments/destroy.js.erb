@@ -1,0 +1,5 @@
+var comments = document.getElementById('comments_count')
+var count = parseInt(comments.innerHTML) - 1
+comments.innerHTML = count
+var comment = document.getElementById('comment_<%= @comment.id %>')
+comment.remove()

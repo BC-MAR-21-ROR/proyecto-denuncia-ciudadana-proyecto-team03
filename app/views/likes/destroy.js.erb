@@ -1,0 +1,4 @@
+var likes = document.getElementById('likes')
+var count = parseInt(likes.innerHTML) - 1
+likes.innerHTML = count
+document.getElementById('like_container').innerHTML = '<%= j render "likes/like_btn", complaint: @complaint %>'
