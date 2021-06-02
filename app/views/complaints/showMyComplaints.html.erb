@@ -1,0 +1,18 @@
+<div class="columns">
+  <div class="column is-3">
+    <div class="filters" id="stick">
+      <%= render 'partials/filters' %>
+    </div>
+
+  </div>
+  <div class="column is-8 is-offset-1">
+    <div class="field is-grouped is-grouped-right">
+      <div class="control">
+        <%= link_to 'Nueva denuncia', new_complaint_path, class: "button is-danger is-medium" %>
+      </div>
+    </div>
+    <%= render 'feed' %>
+    <br>
+    <%= pagy_bulma_nav(@pagy).html_safe %>
+  </div>
+</div>
