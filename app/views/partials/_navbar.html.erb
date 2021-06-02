@@ -19,6 +19,7 @@
       <div class="navbar-end">
         <%= link_to t(".Complaints"), complaints_path, class: "navbar-item" %>
         <% if user_signed_in? %>
+          <%= link_to t(".My Complaints"), complaints_showMyComplaints_path(id: current_user.id), class: "navbar-item" %>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               <div class="media">

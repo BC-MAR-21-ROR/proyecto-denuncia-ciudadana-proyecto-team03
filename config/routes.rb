@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :complaints do
     resources :comments, only: %i[create destroy]
   end
+  get 'complaints/showMyComplaints/:id', to: 'complaints#showMyComplaints', as: 'complaints/showMyComplaints'
+
 	resources :adminpanel
 
   post 'like/:id', to: 'likes#create', as: 'like'
