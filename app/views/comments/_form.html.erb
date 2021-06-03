@@ -1,16 +1,31 @@
 <%= form_with model: [ @complaint, @complaint.comments.build ], local: false do |form| %>
-  <div class="field">
-    <%= form.label :contenido, class: 'label' %>
-    <div class="control">
-      <%= form.text_field :content, class: 'textarea' %>
+  <article class="media">
+    <div class="media-content">
+      <div class="field">
+        <p class="control">
+          <%= form.text_area  :content,
+                              class: "textarea",
+                              required: true,
+                              rows: "3",
+                              minlength: "5",
+                              placeholder: "Comenta..." %>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <%= form.submit 'commentar', class: "button is-info" %>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <label class="checkbox">
+              <%= form.check_box  :anonymous,
+                                  {class: 'checkbox'},
+                                  true, false %> Anonimo
+            </label>
+          </div>
+        </div>
+      </nav>
     </div>
-  </div>
-
-
-  <label class="checkbox">
-    <%= form.check_box :anonymous, {class: 'checkbox'}, true, false %> Anonimo
-  </label>
-  <div class="control">
-    <%= form.submit 'commentar', class: "button is-link" %>
-  </div>
+  </article>
 <% end %>
