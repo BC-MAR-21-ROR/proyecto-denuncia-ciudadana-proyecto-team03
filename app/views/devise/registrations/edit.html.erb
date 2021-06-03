@@ -1,48 +1,110 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
+<h1 class="title"><%= t('.title', resource: resource.model_name.human) %></h1>
+<hr>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
+    <%= f.label :username, class:"label" %>
+    <div class="control has-icons-left">
+      <%= f.text_field  :username,
+                        required: true,
+                        autofocus: true,
+                        class: "input",
+                        placeholder: "Nombre de usuario",
+                        style: "text-transform:lowercase",
+                        onkeyup: "javascript:this.value=this.value.toLowerCase();",
+                        autocomplete: "username" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, class: "label" %>
+    <div class="control has-icons-left">
+      <%= f.email_field :email,
+                        required: true,
+                        autocomplete: "email",
+                        class: "input",
+                        placeholder: "Email",
+                        style: "text-transform:lowercase",
+                        onkeyup: "javascript:this.value=this.value.toLowerCase();" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
   </div>
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %>
+    <%= f.label :password, class: "label" %>
+    <div class="control has-icons-left">
+      <%= f.password_field  :password,
+                            autocomplete: "new-password",
+                            class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+      <p class="help">
+        <%= t('.leave_blank_if_you_don_t_want_to_change_it') %>
+        <% if @minimum_password_length %>
+          <%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %>
+        <% end %>
+      </p>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :password_confirmation, class: "label" %>
+      <div class="control has-icons-left">
+      <%= f.password_field  :password_confirmation,
+                            autocomplete: "new-password",
+                            class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+      <p class="help">
+        <% if @minimum_password_length %>
+          <%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %>
+        <% end %>
+      </p>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label :current_password, class: "label" %>
+      <div class="control has-icons-left">
+      <%= f.password_field  :current_password,
+                            autocomplete: "current-password",
+                            class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+      <p class="help has-text-danger">
+        <%= t('.we_need_your_current_password_to_confirm_your_changes') %>
+      </p>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('.update') %>
+  <hr>
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.submit t('.update'), class:"button is-link" %>
+    </div>
+    <div class="control">
+      <%= link_to t('.cancel'), @user_path, class:"button is-light" %>
+    </div>
   </div>
 <% end %>
 
+<!--
 <h3><%= t('.cancel_my_account') %></h3>
 
 <p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
 
 <%= link_to t('devise.shared.links.back'), :back %>
+-->

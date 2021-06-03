@@ -5,10 +5,10 @@
   <div class="column is-10 is-offset-1">
     <div class="card">
       <div class="card-content">
-        <%= render 'comments/form' %>
         <span id="comments_count"><%= @complaint.comments.count %></span> Comentarios:<br>
         <div id="comment_list">
           <%= render @complaint.comments %>
+        <%= render 'comments/form' %>
         </div>
       </div>
     </div>

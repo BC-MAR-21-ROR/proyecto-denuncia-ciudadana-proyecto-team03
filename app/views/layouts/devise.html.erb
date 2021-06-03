@@ -16,12 +16,34 @@
   </head>
 
   <body>
-    <section class="hero is-fullheight">
-      <div class="hero-body">
+    <% if current_user.present? %>
+    <!--USER REGISTERED-->
+      <div class="header">
+        <%= render 'partials/navbar' %>
+      </div>
+
+      <section class="section">
         <div class="container">
           <%= render 'partials/notification' %>
-          <%= yield %>
+          <main>
+            <div class="columns">
+              <div class="column is-three-fifths is-offset-one-fifth">
+                <%= yield %>
+              </div>
+            </div>
+          </main>
         </div>
-      </div>
-    </section>
+      </section>
+
+    <% else %>
+    <!--USER UNREGISTERED-->
+      <section class="hero is-fullheight">
+        <div class="hero-body">
+          <div class="container">
+            <%= render 'partials/notification' %>
+            <%= yield %>
+          </div>
+        </div>
+      </section>
+    <% end %>
 </html>

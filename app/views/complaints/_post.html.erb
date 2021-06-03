@@ -42,19 +42,16 @@
         <%= image_tag evidence %>
       <% end %>
     </div>
-    <span id="likes"><%= @complaint.get_likes.size %></span> Likes<br>
-    <div id="like_container">
-      <% if user_signed_in? && (current_user.voted_as_when_voted_for @complaint) %>
-        <%= render 'likes/unlike_btn', complaint: @complaint %>
-      <% else %>
-        <%= render 'likes/like_btn', complaint: @complaint %>
-      <% end %>
-    </div>
     <nav class="level is-mobile">
       <div class="level-left">
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-heart"></i></span>
-        </a>
+        <span id="likes"><%= @complaint.get_likes.size %></span> Likes<br>
+        <div id="like_container">
+          <% if user_signed_in? && (current_user.voted_as_when_voted_for @complaint) %>
+            <%= render 'likes/unlike_btn', complaint: @complaint %>
+          <% else %>
+            <%= render 'likes/like_btn', complaint: @complaint %>
+          <% end %>
+        </div>
       </div>
       <div class="level-right">
 
