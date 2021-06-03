@@ -1,14 +1,19 @@
-<p>Welcome <%= current_user.username %> <%= current_user.user_type %></p>
-
-<div>
-  <h2>Complaints in my places of interest</h2>
-  <%= 'There are no complaints yet, add some other places of interest.' if @complaints.length.zero? %>
-  <% @complaints.each do |complaint| %>
-    <p>
-      <%= complaint.category.name %> - <%= complaint.date_of_events %> </br>
-      <%= complaint.state.name %> <%= complaint.municipality.name %> <%= complaint.postal.name %> <%= complaint.settlement.name %> <%= complaint.street %> <%= complaint.number %></br>
-      <strong><%= complaint.title %></strong> </br>
-      <%= complaint.description %> </br>
-    </p>
-  <% end %>
+<div class="columns">
+  <div class="column is-3">
+    <article class="message">
+      <div class="message-header">
+        <p>Bienvenido <%= current_user.username %></p>
+      </div>
+      <div class="message-body">
+        Aqui encontraras las denuncias que son de tu interes y que puedes elegir en el siguiente enlace <strong><%= link_to "My interest places", interest_places_path %></strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum efficitur. Aenean ac <em>eleifend lacus</em>,
+      </div>
+    </article>
+  </div>
+  <div class="column is-9">
+    <div class="content">
+      <h1>Complaints in my places of interest</h1>
+    </div>
+    <hr>
+    <%= render 'complaints/feed' %>
+  </div>
 </div>
