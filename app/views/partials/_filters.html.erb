@@ -1,7 +1,7 @@
 <%= search_form_for @q do |f| %>
-<nav class="panel">
+<nav class="panel" data-controller="complaints">
   <p class="panel-heading">
-    Repositories
+    Filters
   </p>
   <div class="panel-block">
     <p class="control has-icons-left">
@@ -20,7 +20,7 @@
                                   Category.order(:name),
                                   :id,
                                   :name,
-                                  prompt: "Seleciona una" %>
+                                  {include_blank: "Seleciona una"} %>
         </div>
       </div>
     </div>
@@ -34,21 +34,23 @@
                                   State.order(:name),
                                   :id,
                                   :name,
-                                  prompt: "Seleciona una" %>
+                                  {include_blank: "Selecciona un estado"},
+                                  {data: {'complaints-target': 'state_id', action: 'change->complaints#changeChildOptions', type:'state'}} %>
         </div>
       </div>
     </div>
   </div>
   <div class="panel-block">
-    <div class="field">
+    <div class="field control">
       <%= f.label :municipality_id, class:"label" %>
       <div class="control">
         <div class="select is-fullwidth">
           <%= f.collection_select :municipality_id_eq,
-                                  Municipality.order(:name),
-                                  :id,
-                                  :name,
-                                  prompt: "Seleciona una" %>
+                                  [],
+                                  :to_s,
+                                  :to_s,
+                                  {include_blank: "Selecciona un municipio"},
+                                  {data: {'complaints-target': 'municipality_id', type:'municipality', value: f.object.municipality_id_eq}} %>
         </div>
       </div>
     </div>
