@@ -1,1 +1,8 @@
-<%= link_to 'Like', like_path(complaint), method: :post, remote: true, class: "button is-success is-outlined" %>
+<%= link_to like_path(complaint), method: :post, remote: true, class: "" do %>
+  <span class="icon-text has-text-link">
+    <span class="icon">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+    <span>Requiere atención</span>
+  </span>
+<% end %>
