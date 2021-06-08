@@ -6,10 +6,10 @@
     <div class="card">
       <div class="card-content">
         <span id="comments_count"><%= @complaint.comments.count %></span> Comentarios:<br>
-        <div id="comment_list">
+        <div id="comment_list" class="mb-5">
           <%= render @complaint.comments %>
-        <%= render 'comments/form' %>
         </div>
+        <%= render 'comments/form' %>
       </div>
     </div>
   </div>
