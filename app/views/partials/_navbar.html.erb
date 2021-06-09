@@ -17,9 +17,9 @@
       </div>
 
       <div class="navbar-end">
-        <%= link_to t(".Complaints"), complaints_path, class: "navbar-item" %>
+        <%= link_to Complaint.model_name.human(count: 2), complaints_path, class: "navbar-item" %>
         <% if user_signed_in? %>
-          <%= link_to t(".My Complaints"), complaints_showMyComplaints_path(id: current_user.id), class: "navbar-item" %>
+          <%= link_to t("my_complaints"), complaints_showMyComplaints_path(id: current_user.id), class: "navbar-item" %>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               <div class="media">
@@ -30,27 +30,27 @@
             </a>
 
             <div class="navbar-dropdown is-right">
-              <%= link_to "Account configuration", edit_user_registration_path, class: "navbar-item" %>
-              <%= link_to "My interest places", interest_places_path, class: "navbar-item" %>
+              <%= link_to t("account_configuration"), edit_user_registration_path, class: "navbar-item" %>
+              <%= link_to t("my_interest_places"), interest_places_path, class: "navbar-item" %>
               <% if current_user.user_type == 'administrator' %>
                 <%= link_to adminpanel_index_path, class: "navbar-item" do %>
                   <span class="icon-text">
                     <span class="icon">
                       <i class="fas fa-users-cog"></i>
                     </span>
-                    <span><%= t('.admin_users') %></span>
+                    <span><%= t('users_admin') %></span>
                   </span>
                 <% end %>
               <% end %>
               <hr class="navbar-divider">
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+              <%= link_to t("sign_out"), destroy_user_session_path, method: :delete, class: "navbar-item" %>
             </div>
           </div>
         <% else %>
           <div class="navbar-item">
             <div class="buttons">
-              <%= link_to t(".sign_in"), new_user_session_path, class: "button is-light" %>
-              <%= link_to t(".sign_up"), new_user_registration_path, class: "button is-danger" %>
+              <%= link_to t("devise.shared.links.sign_in"), new_user_session_path, class: "button is-light" %>
+              <%= link_to t("devise.shared.links.sign_up"), new_user_registration_path, class: "button is-danger" %>
             </div>
           </div>
         <% end %>

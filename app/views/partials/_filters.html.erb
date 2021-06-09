@@ -1,11 +1,11 @@
 <%= search_form_for @q do |f| %>
 <nav class="panel" data-controller="complaints">
   <p class="panel-heading">
-    Filters
+    <%= t 'filters' %>
   </p>
   <div class="panel-block">
     <p class="control has-icons-left">
-      <%= f.search_field :title, class: "input", placeholder: "Busca por titulo" %>
+      <%= f.search_field :title, class: "input", placeholder: t('search_by_title') %>
       <span class="icon is-left">
         <i class="fas fa-search" aria-hidden="true"></i>
       </span>
@@ -20,7 +20,7 @@
                                   Category.order(:name),
                                   :id,
                                   :name,
-                                  {include_blank: "Seleciona una"} %>
+                                  {include_blank: t('please_select')} %>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
                                   State.order(:name),
                                   :id,
                                   :name,
-                                  {include_blank: "Selecciona un estado"},
+                                  {include_blank: t('please_select')},
                                   {data: {'complaints-target': 'state_id', action: 'change->complaints#changeChildOptions', type:'state'}} %>
         </div>
       </div>
@@ -49,17 +49,17 @@
                                   [],
                                   :to_s,
                                   :to_s,
-                                  {include_blank: "Selecciona un municipio"},
+                                  {include_blank: t('please_select')},
                                   {data: {'complaints-target': 'municipality_id', type:'municipality', value: f.object.municipality_id_eq}} %>
         </div>
       </div>
     </div>
   </div>
   <div class="panel-block">
-    <%= f.submit "Aplicar filtros", class: "button is-link is-fullwidth" %>
+    <%= f.submit t('apply'), class: "button is-link is-fullwidth" %>
   </div>
   <div class="panel-block">
-    <%= link_to t('.reset'), complaints_path, class: "button is-link is-outlined is-fullwidth" %>
+    <%= link_to t('reset'), complaints_path, class: "button is-link is-outlined is-fullwidth" %>
   </div>
 </nav>
 <% end %>

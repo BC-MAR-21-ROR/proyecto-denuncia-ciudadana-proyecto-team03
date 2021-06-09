@@ -1,0 +1,21 @@
+es:
+  app_name: "Denuncia Ciudadana"
+  app_slogan: "No te quedes callado denuncia!"
+  look_at_denounces!: 'Mira las denuncias!'
+  sign_out: 'Cerrar Sesión'
+  please_select: 'Porfavor selecciona...'
+  filters: 'Filtros'
+  apply: 'Aplicar'
+  reset: 'Restablecer'
+  search_by_title: 'Búscar por título'
+  see_more: 'Ver más'
+  new: 'Agregar'
+  edit: 'Editar'
+  destroy: 'Eliminar'
+  location: 'Localización'
+  anonymous_posting: 'Publicación anónima'
+  # links
+  my_complaints: 'Mis denuncias'
+  account_configuration: 'Configuración de la cuenta'
+  my_interest_places: 'Mis lugares de interés'
+  users_admin: 'Administración de usuarios'
