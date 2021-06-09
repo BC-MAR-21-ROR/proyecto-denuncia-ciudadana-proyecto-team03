@@ -4,3 +4,23 @@ en:
       complaint:
         one: "Complaint"
         other: "Complaints"
+
+    attributes:
+      complaint:
+        title: 'Title'
+        description: 'Description'
+        category_id: 'Category'
+        category: 'Category'
+        date_of_events: 'Date of events'
+        state_id: 'State'
+        state: 'State'
+        municipality_id: 'Municipality'
+        municipality: 'Municipality'
+        postal_id: 'Zip code'
+        postal: 'Zip code'
+        settlement_id: 'Settlement'
+        settlement: 'Settlement'
+        street: 'Street'
+        number: 'Number'
+        user_id: 'User'
+        user: 'User'

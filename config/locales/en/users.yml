@@ -1,0 +1,13 @@
+es:
+  activerecord:
+    models:
+      user:
+        one: "User"
+        other: "Users"
+
+    attributes:
+      user:
+        username: 'Username'
+        email: 'Email'
+        password: 'Password'
+        user_type: 'User type'

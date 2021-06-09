@@ -4,3 +4,12 @@ en:
       interest_place:
         one: "Place of interest"
         other: "Places of interest"
+
+    attributes:
+      interest_place:
+        user_id: 'User'
+        postal_id: 'Zip code'
+        settlement_id: 'Settlement'
+        user: 'User'
+        postal: 'Zip code'
+        settlement: 'Settlement'

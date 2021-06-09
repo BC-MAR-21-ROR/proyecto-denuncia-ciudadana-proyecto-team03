@@ -32,23 +32,42 @@
 en:
   app_name: "Citizen Denounce"
   app_slogan: "Don't remain silent, denounce!"
-  please_select: 'Please select...'
   look_at_denounces: 'Look at denounces!'
+  sign_out: 'Sign out'
+  please_select: 'Please select...'
+  filters: 'Filters'
   apply: 'Apply'
+  reset: 'Reset'
   search_by_title: 'Search by title'
+  see_more: 'See more'
   new: 'New'
   edit: 'Edit'
   destroy: 'Destroy'
+  location: 'Location'
+  anonymous_posting: 'Anonymous posting'
+  welcome: 'Welcome'
   welcome_message: 'Here you can find complaints of your interest, which you can choose on the following link'
+  in_my_places_of_interest: 'In my places of interest'
+
+  # links
+  my_complaints: 'My complaints'
+  account_configuration: 'Account configuration'
+  my_interest_places: 'My places of interest'
+  users_admin: 'Users admin'
+
+  # likes
+  does_not_require_attention: 'Does not require attention'
+  requires_attention: 'Requires attention'
 
   # placeholders
   placeholders:
     name: 'Name...'
     describe_what_happened: 'Describe what happened...'
+    write_comment: 'Write your comment...'
 
   global:
     forms:
       messages:
         errors:
-        one:   "1 error prohibited from being saved"
-        other: "%{count} errors prohibited from being saved"
+          one:   "1 error prohibited from being saved"
+          other: "%{count} errors prohibited from being saved"

@@ -4,3 +4,7 @@ en:
       comment:
         one: 'Comment'
         other: 'Comments'
+
+    attributes:
+      comment: 
+        anonymous: 'Anonymous'
