@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   def index
     @page_title = 'Proyecto denuncia ciudadana'
     my_interested_settlements = current_user.interest_places.pluck(:settlement_id)
-    @complaints = Complaint.where(settlement_id: my_interested_settlements).order('created_at DESC')
+    @complaints = Complaint.includes(:user, :category, :state, :municipality, :postal, :settlement).where(settlement_id: my_interested_settlements).order('created_at DESC')
   end
   protected
     def layout_application
