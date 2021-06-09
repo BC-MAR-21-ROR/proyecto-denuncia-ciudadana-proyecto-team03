@@ -13,7 +13,7 @@
       <nav class="level">
         <div class="level-left">
           <div class="level-item">
-            <%= form.submit 'commentar', class: "button is-info" %>
+            <%= form.submit class: "button is-info" %>
           </div>
         </div>
         <div class="level-right">
@@ -21,7 +21,7 @@
             <label class="checkbox">
               <%= form.check_box  :anonymous,
                                   {class: 'checkbox'},
-                                  true, false %> Anonimo
+                                  true, false %> <%=Comment.human_attribute_name("anonymous")%>
             </label>
           </div>
         </div>

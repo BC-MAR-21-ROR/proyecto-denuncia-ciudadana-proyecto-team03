@@ -1,0 +1,10 @@
+es:
+  activerecord:
+    models:
+      comment:
+        one: 'Comentario'
+        other: 'Comentarios'
+
+    attributes:
+      comment: 
+        anonymous: 'Anónimo'

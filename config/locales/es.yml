@@ -22,3 +22,19 @@ es:
   account_configuration: 'Configuración de la cuenta'
   my_interest_places: 'Mis lugares de interés'
   users_admin: 'Administración de usuarios'
+
+  # likes
+  does_not_require_attention: 'No requiere atención'
+  requires_attention: 'Requiere atención'
+
+  # placeholders
+  placeholders:
+    name: 'Nombre...'
+    describe_what_happened: 'Describe lo que ocurrió...'
+
+  global:
+    forms:
+      messages:
+        errors:
+          one: "1 error impide guardar el elemento:"
+          other: "%{count} errores impiden guardar el elemento:"

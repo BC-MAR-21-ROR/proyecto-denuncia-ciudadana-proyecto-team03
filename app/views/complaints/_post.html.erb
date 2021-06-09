@@ -35,7 +35,7 @@
       <br>
       <br>
       <p class="subtitle is-6">
-        <strong>Fecha de los eventos:</strong>
+        <strong><%=Complaint.human_attribute_name("date_of_events")%>:</strong>
         <%= (@complaint.date_of_events) %>
       </p>
       <% @complaint.evidences.each do |evidence| %>
