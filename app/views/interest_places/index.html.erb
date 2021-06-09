@@ -1,11 +1,16 @@
 <div class="columns is-mobile">
   <div class="column is-three-fifths is-offset-one-fifth">
-    <h1 class="title"><%= t('.interest_places') %></h1>
+    <h1 class="title"><%= InterestPlace.model_name.human(count: 2) %></h1>
+    <div class="field is-grouped is-grouped-right">
+      <div class="control">
+        <%= link_to "#{t 'new'} #{InterestPlace.model_name.human}", new_interest_place_path, class: "button is-danger is-medium is-outlined" %>
+      </div>
+    </div>
     <table class="table is-fullwidth">
       <thead>
         <tr>
-          <th><%= t('.postal_code') %></th>
-          <th><%= t('.settlement') %></th>
+          <th><%=InterestPlace.human_attribute_name("postal")%></th>
+          <th><%=InterestPlace.human_attribute_name("settlement")%></th>
           <th colspan="2"></th>
         </tr>
       </thead>
@@ -21,7 +26,7 @@
                   <span class="icon">
                     <i class="fas fa-edit"></i>
                   </span>
-                  <span><%= t('.edit') %></span>
+                  <span><%= t('edit') %></span>
                 </span>
               <% end %>
             </td>
@@ -31,7 +36,7 @@
                   <span class="icon">
                     <i class="fas fa-trash-alt"></i>
                   </span>
-                  <span><%= t('.destroy') %></span>
+                  <span><%= t('destroy') %></span>
                 </span>
               <% end %>
             </td>
@@ -39,9 +44,6 @@
         <% end %>
       </tbody>
     </table>
-
-    <br>
-    <%= link_to 'New Interest Place', new_interest_place_path, class: "button" %>
 
   </div>
 </div>
