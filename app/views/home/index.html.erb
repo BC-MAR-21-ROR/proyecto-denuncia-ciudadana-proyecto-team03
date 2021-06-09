@@ -2,16 +2,16 @@
   <div class="column is-3">
     <article class="message">
       <div class="message-header">
-        <p>Bienvenido <%= current_user.username %></p>
+        <p><%= t 'welcome' %> <%= current_user.username %></p>
       </div>
       <div class="message-body">
-        Aqui encontraras las denuncias que son de tu interes y que puedes elegir en el siguiente enlace <strong><%= link_to "My interest places", interest_places_path %></strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum efficitur. Aenean ac <em>eleifend lacus</em>,
+        <%= t 'welcome_message' %> <strong><%= link_to t("my_interest_places"), interest_places_path %></strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum efficitur. Aenean ac <em>eleifend lacus</em>,
       </div>
     </article>
   </div>
   <div class="column is-9">
     <div class="content">
-      <h1>Complaints in my places of interest</h1>
+      <h1><%= Complaint.model_name.human(count: 2) %> <%= t 'in_my_places_of_interest' %></h1>
     </div>
     <hr>
     <%= render 'complaints/feed' %>

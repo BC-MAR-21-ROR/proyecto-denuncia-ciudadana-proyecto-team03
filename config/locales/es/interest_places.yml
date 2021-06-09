@@ -1,0 +1,15 @@
+es:
+  activerecord:
+    models:
+      interest_place:
+        one: "Lugar de interés"
+        other: "Lugares de interés"
+
+    attributes:
+      interest_place:
+        user_id: 'Usuario'
+        postal_id: 'Código postal'
+        settlement_id: 'Asentamiento'
+        user: 'Usuario'
+        postal: 'Código postal'
+        settlement: 'Asentamiento'

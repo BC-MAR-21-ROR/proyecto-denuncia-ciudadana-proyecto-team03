@@ -18,5 +18,13 @@ module ProyectoDenunciaCiudadanaProyectoTeam03
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # available languages in the app
+    config.i18n.available_locales = [:en, :es]
+    # default language
+    config.i18n.default_locale = :es
+
+    # load all the yml files inside locales and subfolders
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   end
 end

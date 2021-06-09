@@ -3,7 +3,7 @@
     <article id="error_explanation" class="message is-danger">
       <div class="message-header">
         <p>
-          <%= pluralize(complaint.errors.count, t(".error")) %>
+          <%= t 'global.forms.messages.errors', count: complaint.errors.count %>
         </p>
         <button class="delete" aria-label="delete"></button>
       </div>
@@ -24,7 +24,7 @@
                           autofocus: true,
                           required: true,
                           minlength: "5",
-                          placeholder: "Nombre...",
+                          placeholder: t('placeholders.name'),
                           maxlength: "50" %>
     </div>
   </div>
@@ -35,7 +35,7 @@
       <%= form.text_area  :description,
                           class: "textarea",
                           required: true,
-                          placeholder: "Describe lo que ocurrio...",
+                          placeholder: t('placeholders.describe_what_happened'),
                           minlength: "5" %>
     </div>
   </div>
@@ -48,7 +48,7 @@
                                     Category.order(:name),
                                     :id,
                                     :name,
-                                    prompt: "Selecciona la categoria" %>
+                                    prompt: t('please_select') %>
       </div>
       <span class="icon is-left">
         <i class="fas fa-tag"></i>
@@ -68,7 +68,7 @@
 
   <br>
   <h2 class="subtitle">
-    <strong><%= t('.location') %></strong>
+    <strong><%= t('location') %></strong>
   </h2>
   <hr>
   <div class="field is-horizontal">
@@ -84,7 +84,7 @@
                                               State.order(:name),
                                               :id,
                                               :name,
-                                              {prompt: "Selecciona un estado"},
+                                              {prompt: t('please_select')},
                                               {data:{'complaints-target': 'state_id', action: 'change->complaints#changeChildOptions', type:'state'}} %>
                 </div>
               </div>
@@ -99,7 +99,7 @@
                                               [],
                                               :to_s,
                                               :to_s,
-                                              {prompt: "Selecciona un municipio"},
+                                              {prompt: t('please_select')},
                                               {data:{'complaints-target': 'municipality_id', action: 'change->complaints#changeChildOptions', type:'municipality', value: complaint.municipality_id}} %>
                 </div>
               </div>
@@ -123,7 +123,7 @@
                                               [],
                                               :to_s,
                                               :to_s,
-                                              {prompt: "Selecciona un codigo postal"},
+                                              {prompt: t('please_select')},
                                               {data:{'complaints-target': 'postal_id', action: 'change->complaints#changeChildOptions', type:'postal', value: complaint.postal_id}} %>
                 </div>
               </div>
@@ -138,7 +138,7 @@
                                               [],
                                               :to_s,
                                               :to_s,
-                                              {prompt: "Selecciona un asentamiento"},
+                                              {prompt: t('please_select')},
                                               {data:{'complaints-target': 'settlement_id', value: complaint.settlement_id}} %>
                 </div>
               </div>
@@ -181,7 +181,7 @@
   </div>
 
   <div class="field">
-    <label class="label">Publicacion anonima</label>
+    <label class="label"><%= t('anonymous_posting') %></label>
     <div class="control">
       <label class="radio">
         <input type="radio" name="question">

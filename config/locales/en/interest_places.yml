@@ -1,0 +1,6 @@
+en:
+  activerecord:
+    models:
+      interest_place:
+        one: "Place of interest"
+        other: "Places of interest"

@@ -30,4 +30,25 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_name: "Citizen Denounce"
+  app_slogan: "Don't remain silent, denounce!"
+  please_select: 'Please select...'
+  look_at_denounces: 'Look at denounces!'
+  apply: 'Apply'
+  search_by_title: 'Search by title'
+  new: 'New'
+  edit: 'Edit'
+  destroy: 'Destroy'
+  welcome_message: 'Here you can find complaints of your interest, which you can choose on the following link'
+
+  # placeholders
+  placeholders:
+    name: 'Name...'
+    describe_what_happened: 'Describe what happened...'
+
+  global:
+    forms:
+      messages:
+        errors:
+        one:   "1 error prohibited from being saved"
+        other: "%{count} errors prohibited from being saved"

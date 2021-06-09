@@ -1,5 +1,3 @@
-<h1>Editing User</h1>
+<h1><%= "#{t 'edit'} #{User.model_name.human}" %></h1>
 
 <%= render 'form', adminpanel: @adminpanel %>
- |
-<%= link_to 'Back', complaints_path %>

@@ -1,0 +1,40 @@
+es:
+  app_name: "Denuncia Ciudadana"
+  app_slogan: "No te quedes callado denuncia!"
+  look_at_denounces: 'Mira las denuncias!'
+  sign_out: 'Cerrar Sesión'
+  please_select: 'Porfavor selecciona...'
+  filters: 'Filtros'
+  apply: 'Aplicar'
+  reset: 'Restablecer'
+  search_by_title: 'Búscar por título'
+  see_more: 'Ver más'
+  new: 'Agregar'
+  edit: 'Editar'
+  destroy: 'Eliminar'
+  location: 'Localización'
+  anonymous_posting: 'Publicación anónima'
+  welcome: 'Bienvenido'
+  welcome_message: 'Aquí encontrarás las denuncias que son de tu interés y que puedes elegir en el siguiente enlace'
+  in_my_places_of_interest: 'en mis lugares de interés'
+  # links
+  my_complaints: 'Mis denuncias'
+  account_configuration: 'Configuración de la cuenta'
+  my_interest_places: 'Mis lugares de interés'
+  users_admin: 'Administración de usuarios'
+
+  # likes
+  does_not_require_attention: 'No requiere atención'
+  requires_attention: 'Requiere atención'
+
+  # placeholders
+  placeholders:
+    name: 'Nombre...'
+    describe_what_happened: 'Describe lo que ocurrió...'
+
+  global:
+    forms:
+      messages:
+        errors:
+          one: "1 error impide guardar el elemento:"
+          other: "%{count} errores impiden guardar el elemento:"

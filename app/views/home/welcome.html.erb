@@ -17,8 +17,8 @@
           <div class="navbar-end">
             <span class="navbar-item">
               <div class="buttons">
-                <%= link_to t(".sign_in"), new_user_session_path, class: "button is-medium is-light" %>
-                <%= link_to t(".sign_up"), new_user_registration_path, class: "button is-medium is-danger" %>
+                <%= link_to t("devise.shared.links.sign_in"), new_user_session_path, class: "button is-medium is-light" %>
+                <%= link_to t("devise.shared.links.sign_up"), new_user_registration_path, class: "button is-medium is-danger" %>
               </div>
             </span>
           </div>
@@ -33,12 +33,12 @@
       <div class="columns">
         <div class="column is-6">
           <p class="title">
-            No te quedes callado denuncia!
+            <%= t 'app_slogan' %>
           </p>
           <p class="subtitle">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ea temporibus, pariatur ut sapiente dolore voluptatem provident id ipsa?
           </p>
-          <%= link_to 'Mira las denuncias!', complaints_path, class: "button is-danger is-large" %>
+          <%= link_to (t 'look_at_denounces'), complaints_path, class: "button is-danger is-large" %>
         </div>
       </div>
     </div>
