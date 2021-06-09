@@ -69,5 +69,5 @@ en:
     forms:
       messages:
         errors:
-        one:   "1 error prohibited from being saved"
-        other: "%{count} errors prohibited from being saved"
+          one:   "1 error prohibited from being saved"
+          other: "%{count} errors prohibited from being saved"
