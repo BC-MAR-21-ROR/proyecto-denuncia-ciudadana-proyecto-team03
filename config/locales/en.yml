@@ -33,6 +33,7 @@ en:
   app_name: "Citizen Denounce"
   app_slogan: "Don't remain silent, denounce!"
   please_select: 'Please select...'
+  look_at_denounces: 'Look at denounces!'
   apply: 'Apply'
   search_by_title: 'Search by title'
   new: 'New'

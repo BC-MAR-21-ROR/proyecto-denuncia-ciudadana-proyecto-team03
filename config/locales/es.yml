@@ -1,7 +1,7 @@
 es:
   app_name: "Denuncia Ciudadana"
   app_slogan: "No te quedes callado denuncia!"
-  look_at_denounces!: 'Mira las denuncias!'
+  look_at_denounces: 'Mira las denuncias!'
   sign_out: 'Cerrar Sesión'
   please_select: 'Porfavor selecciona...'
   filters: 'Filtros'
