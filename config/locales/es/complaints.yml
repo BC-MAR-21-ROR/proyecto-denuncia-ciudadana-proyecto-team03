@@ -1,0 +1,20 @@
+es:
+  activerecord:
+    models:
+      complaint:
+        one: "Denuncia"
+        other: "Denuncias"
+
+    attributes:
+      complaint:
+        title: 'Titulo'
+        description: 'Descripción'
+        category_id: 'Categoría'
+        date_of_events: 'Fecha de los eventos'
+        state_id: 'Estado'
+        municipality_id: 'Municipio'
+        postal_id: 'Código postal'
+        settlement_id: 'Asentamiento'
+        street: 'Calle'
+        number: 'Número'
+        user_id: 'Usuario'
