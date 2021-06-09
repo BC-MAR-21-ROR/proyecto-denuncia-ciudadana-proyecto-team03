@@ -17,6 +17,7 @@ es:
   welcome: 'Bienvenido'
   welcome_message: 'Aquí encontrarás las denuncias que son de tu interés y que puedes elegir en el siguiente enlace'
   in_my_places_of_interest: 'en mis lugares de interés'
+  
   # links
   my_complaints: 'Mis denuncias'
   account_configuration: 'Configuración de la cuenta'
@@ -31,6 +32,7 @@ es:
   placeholders:
     name: 'Nombre...'
     describe_what_happened: 'Describe lo que ocurrió...'
+    write_comment: 'Escribe tu comentario...'
 
   global:
     forms:
