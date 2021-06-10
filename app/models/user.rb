@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   # relations
+  has_one_attached :avatar
+
   has_many :interest_places
   has_many :complaints
   has_many :comments
