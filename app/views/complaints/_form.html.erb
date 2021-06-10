@@ -183,14 +183,10 @@
   <div class="field">
     <label class="label"><%= t('anonymous_posting') %></label>
     <div class="control">
-      <label class="radio">
-        <input type="radio" name="question">
-        Yes
-      </label>
-      <label class="radio">
-        <input type="radio" name="question">
-        No
-      </label>
+      <%= form.label :anonymous, "Yes", :value => "true"  %>
+      <%= form.radio_button :anonymous, true %>
+      <%= form.label :anonymous, "No", :value => "false" %>
+      <%= form.radio_button :anonymous, false, :checked => true %>
     </div>
   </div>
 
