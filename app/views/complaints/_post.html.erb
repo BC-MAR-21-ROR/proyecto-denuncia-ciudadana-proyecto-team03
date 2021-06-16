@@ -2,7 +2,7 @@
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="subtitle is-6"><%= "@" + @complaint.user.username %></p>
+        <p class="subtitle is-6"><%= @complaint.anonymous ? 'Anonymous' : "@#{truncate(@complaint.user.username, length: 50)}" %></p>
         <p class="title is-4">
           <%= @complaint.title %>
         </p>

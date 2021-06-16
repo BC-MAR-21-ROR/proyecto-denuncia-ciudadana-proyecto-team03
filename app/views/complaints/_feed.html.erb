@@ -4,11 +4,7 @@
       <div class="media">
         <div class="media-content">
           <p class="subtitle is-6">
-            <% if complaint.anonymous == true %>
-              <%= "@" + truncate(complaint.user.username, length: 50) %>
-            <% else %>
-              <%= "Anonymous" %>
-            <% end %>
+            <%= complaint.anonymous ? 'Anonymous' : "@#{truncate(complaint.user.username, length: 50)}" %>
           </p>
           <p class="title is-4">
             <%= link_to (truncate(complaint.title, length: 50)), complaint, class: "has-text-dark" %>
