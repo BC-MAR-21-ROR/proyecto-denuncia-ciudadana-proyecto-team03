@@ -24,3 +24,5 @@ es:
         number: 'Número'
         user_id: 'Usuario'
         user: 'Usuario'
+        anonymous: 'Mostrar como anónima?'
+        evidences: 'Evidencias'
