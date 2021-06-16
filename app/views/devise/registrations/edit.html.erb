@@ -1,19 +1,27 @@
 <h1 class="title"><%= t('.title', resource: resource.model_name.human) %></h1>
 <hr>
 
-<div class="field">
-  <% if current_user.avatar.attached? %>
-    <%= image_tag current_user.avatar %>
-  <% else %>
-    <img src="/user_icon.png" alt="">
-  <% end %>
+<div class="field" id="preview">
+  <%= image_tag(current_user.avatar.attached? ? current_user.avatar : (asset_path '/user_icon.png')) %>
 </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, 'data-controller': 'users' }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.file_field :avatar %>
+    <div class="file is-boxed is-centered">
+      <label class="file-label">
+        <%= f.file_field :avatar, class: 'file-input', data: {action:'change->users#changePreviewAvatar'} %>
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            avatar…
+          </span>
+        </span>
+      </label>
+    </div>
   </div>
 
   <div class="field">
