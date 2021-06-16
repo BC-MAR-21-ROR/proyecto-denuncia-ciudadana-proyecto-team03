@@ -24,3 +24,5 @@ en:
         number: 'Number'
         user_id: 'User'
         user: 'User'
+        anonymous: 'Show as anoymous?'
+        evidences: 'Evidences'
