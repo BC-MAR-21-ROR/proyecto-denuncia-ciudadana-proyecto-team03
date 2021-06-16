@@ -13,7 +13,7 @@ export default class extends Controller {
     reader.onload = function(){
       let preview = document.getElementById('preview'),
       image = document.createElement('img');
-      image.classList.add('img-fluid');
+      image.classList.add('is-rounded');
 
       image.src = reader.result;
 
