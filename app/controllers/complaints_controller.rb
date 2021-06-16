@@ -9,7 +9,7 @@ class ComplaintsController < ApplicationController
     @pagy, @complaints = pagy(Complaint.all.order('created_at DESC'), page: params[:page])
 
     ## Filters
-    @q = Complaint.ransack(params[:q])
+    @q = Complaint.includes(:user, :category, :state, :municipality, :postal, :settlement).ransack(params[:q])
     @pagy, @complaints = pagy(@q.result.all.order('created_at DESC'), page: params[:page])
   end
 
