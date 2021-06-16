@@ -26,6 +26,8 @@ gem 'devise-i18n'
 gem 'rails-i18n', '~> 6.0.0'
 # Object-based searching
 gem 'ransack', github: 'activerecord-hackery/ransack'
+# Redcarpet is a Ruby library for Markdown processing that smells like butterflies and popcorn.
+gem 'redcarpet'
 gem 'acts_as_votable'
 # generate fake data
 gem 'faker'
