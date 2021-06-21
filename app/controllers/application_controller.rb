@@ -18,14 +18,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless user_signed_in? && current_user.is_admin?
   end
 
-  def after_sign_out_path_for(_resource_or_scope)
-    new_user_session_path
-  end
-
-  def after_inactive_sign_up_path_for(_resource)
-    new_user_session_path
-  end
-
   def switch_locale(&action)
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &action)

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 	get '/adminpanel/:id/edit', :to => 'adminpanel#edit', :as => :user
 	patch '/adminpanel/:id/edit' => "adminpanel#update", :as => "adminpanel/update"
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   devise_scope :user do
     authenticated :user do
