@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :username, class:"label" %>
-    <div class="control has-icons-left">
+    <div class="control">
       <%= f.text_field  :username,
                         required: true,
                         autofocus: true,
@@ -37,7 +37,7 @@
                         style: "text-transform:lowercase",
                         onkeyup: "javascript:this.value=this.value.toLowerCase();",
                         autocomplete: "username" %>
-      <span class="icon is-small is-left">
+      
         <i class="fas fa-user"></i>
       </span>
     </div>
@@ -45,7 +45,7 @@
 
   <div class="field">
     <%= f.label :email, class: "label" %>
-    <div class="control has-icons-left">
+    <div class="control">
       <%= f.email_field :email,
                         required: true,
                         autocomplete: "email",
@@ -53,8 +53,8 @@
                         placeholder: "Email",
                         style: "text-transform:lowercase",
                         onkeyup: "javascript:this.value=this.value.toLowerCase();" %>
-      <span class="icon is-small is-left">
-        <i class="fas fa-envelope"></i>
+      
+        
       </span>
     </div>
   </div>
@@ -64,11 +64,11 @@
 
   <div class="field">
     <%= f.label :password, class: "label" %>
-    <div class="control has-icons-left">
+    <div class="control">
       <%= f.password_field  :password,
                             autocomplete: "new-password",
                             class: "input" %>
-      <span class="icon is-small is-left">
+      
         <i class="fas fa-lock"></i>
       </span>
       <p class="help">
@@ -82,11 +82,11 @@
 
   <div class="field">
     <%= f.label :password_confirmation, class: "label" %>
-      <div class="control has-icons-left">
+      <div class="control">
       <%= f.password_field  :password_confirmation,
                             autocomplete: "new-password",
                             class: "input" %>
-      <span class="icon is-small is-left">
+      
         <i class="fas fa-lock"></i>
       </span>
       <p class="help">

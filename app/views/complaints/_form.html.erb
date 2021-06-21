@@ -42,7 +42,7 @@
 
   <div class="field">
     <%= form.label :category_id, class:"label" %>
-    <div class="control has-icons-left">
+    <div class="control">
       <div class="select is-fullwidth">
         <%= form.collection_select  :category_id,
                                     Category.order(:name),
@@ -50,9 +50,6 @@
                                     :name,
                                     prompt: t('please_select') %>
       </div>
-      <span class="icon is-left">
-        <i class="fas fa-tag"></i>
-      </span>
     </div>
   </div>
 
