@@ -1,50 +1,65 @@
-<div class="card">
-  <div class="card-content">
+
     <div class="media">
+      <%# <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+      </div> %>
       <div class="media-content">
-        <p class="subtitle is-6"><%= @complaint.anonymous ? 'Anonymous' : "@#{truncate(@complaint.user.username, length: 50)}" %></p>
         <p class="title is-4">
           <%= @complaint.title %>
         </p>
         <p class="subtitle is-6">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-tag"></i>
-            </span>
-            <span><%= @complaint.category.name if @complaint.category %></span>
-          </span>
-        </p>
-        <p class="title is-6">
-          <span class="icon-text">
-            <span class="icon">
-              <i class="fas fa-map-marked-alt"></i>
-            </span>
-            <span>
-              <%= @complaint.number %>
-              <%= @complaint.street %>
-              <%= "- " + @complaint.settlement.name if @complaint.settlement %>
-              <%= "- " + @complaint.municipality.name if @complaint.municipality %>
-              <%= "- " + @complaint.state.name if @complaint.state %>
-            </span>
-          </span>
+          <%= @complaint.anonymous ? 'Anonymous' : "@#{truncate(@complaint.user.username, length: 50)}" %>
         </p>
       </div>
     </div>
+
     <div class="content">
-      <%= markdown(@complaint.description) %>
+      <span class="icon-text has-text-dark">
+        <span class="icon">
+          <%= fa_icon "tag" %>
+        </span>
+        <span><%= @complaint.category.name if @complaint.category %></span>
+      </span>
+      •
+      <span class="icon-text has-text-dark">
+        <span class="icon">
+          <%= fa_icon "globe" %>
+        </span>
+        <span>
+          <%= @complaint.settlement.name if @complaint.settlement %>
+          <%= "- " + @complaint.municipality.name if @complaint.municipality %>
+          <%= "- " + @complaint.state.name if @complaint.state %>
+        </span>
+      </span>
+      •
+      <span class="icon-text has-text-dark">
+        <span class="icon">
+          <%= fa_icon "calendar" %>
+        </span>
+        <span><%= @complaint.created_at.strftime("%F") %></span>
+      </span>
       <br>
+      <%= @complaint.description %>
       <br>
-      <p class="subtitle is-6">
-        <strong><%=Complaint.human_attribute_name("date_of_events")%>:</strong>
-        <%= (@complaint.date_of_events) %>
-      </p>
+      <strong><%=Complaint.human_attribute_name("date_of_events")%>:</strong>
+      <%= (@complaint.date_of_events) %>
+      <br>
+      <strong>Evidencias:</strong>
       <% @complaint.evidences.each do |evidence| %>
-        <%= image_tag evidence %>
+        <figure class="image">
+          <%= image_tag evidence %>
+        </figure>
       <% end %>
     </div>
+
     <nav class="level is-mobile">
       <div class="level-left">
-        <span id="likes"><%= @complaint.get_likes.size %></span>
+        <span class="">
+          <%= fa_icon "comment" %>
+          <%= @complaint.comments.count %>
+        </span>
         <div id="like_container">
           <% if user_signed_in? && (current_user.voted_as_when_voted_for @complaint) %>
             <%= render 'likes/unlike_btn', complaint: @complaint %>
@@ -52,20 +67,19 @@
             <%= render 'likes/like_btn', complaint: @complaint %>
           <% end %>
         </div>
+        <span id="likes" class="has-text-link" ><%= @complaint.get_likes.size %></span>
       </div>
       <div class="level-right">
-
-
         <% if user_signed_in? && (current_user.id == @complaint.user_id) || user_signed_in? && (current_user.user_type == 'administrator') %>
           <%= link_to edit_complaint_path(@complaint), class: "level-item" do %>
             <span class="icon">
-              <i class="fas fa-edit"></i>
+              <%= fa_icon "edit" %>
             </span>
           <% end %>
           <%= link_to @complaint, method: :delete, data: { confirm: 'Are you sure?' } do %>
             <span class="icon-text has-text-danger">
               <span class="icon">
-                <i class="fas fa-trash-alt"></i>
+                <%= fa_icon "trash" %>
               </span>
             </span>
           <% end %>
@@ -73,6 +87,3 @@
         <% end %>
       </div>
     </nav>
-    </div>
-  </div>
-</div>

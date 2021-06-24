@@ -11,16 +11,37 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_area :username %>
+    <%= form.label :username, class: "label" %>
+    <div class="control has-icons-left">
+      <%= form.text_field  :username,
+                        required: true,
+                        autocomplete: "username",
+                        autofocus: true,
+                        class: "input",
+                        placeholder: "Nombre de usuario",
+                        style: "text-transform:lowercase",
+                        onkeyup: "javascript:this.value=this.value.toLowerCase();" %>
+      <span class="icon is-small is-left">
+        <%= fa_icon "user" %>
+      </span>
+      <p class="help">Escribelo sin espacios, ni mayusculas</p>
+    </div>
   </div>
+
 
   <div class="field">
-    <%= form.label :user_type %>
-    <%= form.text_field :user_type %>
+    <%= form.label :user_type, class: "label" %>
+    <div class="control has-icons-left">
+      <%= form.text_field  :user_type,
+                        required: true,
+                        class: "input" %>
+      <span class="icon is-small is-left">
+        <%= fa_icon "user" %>
+      </span>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <div class="control">
+      <%= form.submit class:"button is-link" %>
+    </div>
 <% end %>

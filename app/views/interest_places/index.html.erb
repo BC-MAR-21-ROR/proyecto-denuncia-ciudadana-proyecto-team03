@@ -3,7 +3,7 @@
     <h1 class="title"><%= InterestPlace.model_name.human(count: 2) %></h1>
     <div class="field is-grouped is-grouped-right">
       <div class="control">
-        <%= link_to "#{t 'new'} #{InterestPlace.model_name.human}", new_interest_place_path, class: "button is-danger is-medium is-outlined" %>
+        <%= link_to "#{t 'new'} #{InterestPlace.model_name.human}", new_interest_place_path, class: "button is-primary is-outlined" %>
       </div>
     </div>
     <table class="table is-fullwidth">
@@ -24,7 +24,7 @@
               <%= link_to edit_interest_place_path(interest_place) do %>
                 <span class="icon-text">
                   <span class="icon">
-                    <i class="fas fa-edit"></i>
+                    <%= fa_icon "edit" %>
                   </span>
                   <span><%= t('edit') %></span>
                 </span>
@@ -34,7 +34,7 @@
               <%= link_to interest_place, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <span class="icon-text has-text-danger">
                   <span class="icon">
-                    <i class="fas fa-trash-alt"></i>
+                    <%= fa_icon "trash" %>
                   </span>
                   <span><%= t('destroy') %></span>
                 </span>

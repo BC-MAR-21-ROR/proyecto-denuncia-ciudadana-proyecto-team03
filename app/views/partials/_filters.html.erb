@@ -4,10 +4,10 @@
     <%= t 'filters' %>
   </p>
   <div class="panel-block">
-    <p class="control">
+    <p class="control has-icons-left">
       <%= f.search_field :title, class: "input", placeholder: t('search_by_title') %>
       <span class="icon is-left">
-        <i class="fas fa-search" aria-hidden="true"></i>
+        <%= fa_icon "search" %>
       </span>
     </p>
   </div>
