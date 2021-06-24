@@ -1,4 +1,25 @@
 # Setup
+
+## Installing
+Builded with:
+* ruby 3.0.1
+* rails 6.1.3.2
+
+To install the app first you need to clone the repository to your local computer. Visit [documentation git clone page](https://docs.github.com/es/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository) to more details.
+Then you can proceed to install and have up and running with the followings commands:
+
+To install all gems and dependences needed just run:
+```bash
+bundle install
+```
+```bash
+yarn install
+```
+The command below creates your database, run migrations and seeds database with initial data. 
+```bash
+rails db:setup
+```
+
 ## Required global variables
 You need to declare these global variables in your system in order to deploy correctly this app. (only when you are on production environment, you don't need them when you are on development)
 - APP_HOST: store the host name of the app.
@@ -19,6 +40,17 @@ Then you can access with the following credentials:
 - email: admin@email.com 
 - password: 123456 (the same for all generated users).
 
+# Testing
+Just run the command below:
+```bash
+rspec
+```
+
+# Authors
+- [ALAN1MACIAS](https://github.com/ALAN1MACIAS)
+- [Brayan9105](https://github.com/Brayan9105)
+- [brayandiazc](https://github.com/brayandiazc)
+- [Carlos-Montiel](https://github.com/Carlos-Montiel)
 
 # Demo app
 Yo can access to a live demonstration of this app hosted on heroku in the following link: [Denuncia ciudadana team03](https://denuncia-ciudadana-team03.herokuapp.com/)
