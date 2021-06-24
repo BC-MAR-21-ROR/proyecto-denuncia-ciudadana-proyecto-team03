@@ -28,7 +28,7 @@
           <%= render 'partials/notification' %>
           <main>
             <div class="columns">
-              <div class="column is-three-fifths is-offset-one-fifth">
+              <div class="column is-10 is-offset-1">
                 <%= yield %>
               </div>
             </div>
@@ -38,11 +38,21 @@
 
     <% else %>
     <!--USER UNREGISTERED-->
-      <section class="hero is-fullheight">
+      <section class="hero is-fullheight img-login">
         <div class="hero-body">
           <div class="container">
-            <%= render 'partials/notification' %>
-            <%= yield %>
+            <div class="columns is-vcentered">
+              <div class="column is-8 is-offset-2">
+                <%= render 'partials/notification' %>
+                <div class="card">
+                  <div class="card-content">
+                    <div class="content">
+                      <%= yield %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
