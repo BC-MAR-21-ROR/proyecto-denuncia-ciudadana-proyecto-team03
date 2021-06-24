@@ -66,7 +66,7 @@ RSpec.describe "/interest_places", type: :request do
 
       it "redirects to the created interest_place" do
         post interest_places_url, params: { interest_place: valid_attributes }
-        expect(response).to redirect_to(interest_places_url)
+        expect(response).to redirect_to(interest_places_url + "?locale=es")
       end
     end
 
@@ -100,7 +100,7 @@ RSpec.describe "/interest_places", type: :request do
         interest_place = InterestPlace.create! valid_attributes
         patch interest_place_url(interest_place), params: { interest_place: new_attributes }
         interest_place.reload
-        expect(response).to redirect_to(interest_places_url)
+        expect(response).to redirect_to(interest_places_url + "?locale=es")
       end
     end
 
@@ -124,7 +124,7 @@ RSpec.describe "/interest_places", type: :request do
     it "redirects to the interest_places list" do
       interest_place = InterestPlace.create! valid_attributes
       delete interest_place_url(interest_place)
-      expect(response).to redirect_to(interest_places_url)
+      expect(response).to redirect_to(interest_places_url + "?locale=es")
     end
   end
 end
