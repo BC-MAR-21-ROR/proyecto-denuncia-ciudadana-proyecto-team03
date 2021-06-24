@@ -45,7 +45,7 @@ RSpec.describe '/adminpanel', type: :request do
         user = User.create! valid_attributes
         patch adminpanel_url(user), params: { user: new_attributes }
         user.reload
-        expect(response).to redirect_to(adminpanel_index_url)
+        expect(response).to redirect_to(adminpanel_index_url + "?locale=es")
       end
     end
   end
