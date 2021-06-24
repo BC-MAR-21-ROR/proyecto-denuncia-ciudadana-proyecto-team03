@@ -1,3 +1,7 @@
-<h1><%= "#{t 'edit'} #{User.model_name.human}" %></h1>
-
-<%= render 'form', adminpanel: @adminpanel %>
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <h1 class="title"><%= "#{t 'edit'} #{User.model_name.human}" %></h1>
+    <hr>
+    <%= render 'form', adminpanel: @adminpanel %> 
+  </div>
+</div>

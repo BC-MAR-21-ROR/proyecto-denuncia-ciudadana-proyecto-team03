@@ -23,6 +23,15 @@
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link">
               <div class="media">
+                <div class="media-left">
+                  <figure class="image is-24x24">
+                    <% if current_user.avatar.attached? %>
+                      <%= image_tag current_user.avatar, class: "is-rounded" %>
+                    <% else %>
+                      <%= image_tag "user.svg", class: "is-rounded" %>
+                    <% end %>
+                  </figure>
+                </div>
                 <div class="media-content">
                   <%= truncate(current_user.username, length:20, class: '') %>
                 </div>
@@ -33,14 +42,7 @@
               <%= link_to t("account_configuration"), edit_user_registration_path, class: "navbar-item" %>
               <%= link_to t("my_interest_places"), interest_places_path, class: "navbar-item" %>
               <% if current_user.user_type == 'administrator' %>
-                <%= link_to adminpanel_index_path, class: "navbar-item" do %>
-                  <span class="icon-text">
-                    <span class="icon">
-                      <i class="fas fa-users-cog"></i>
-                    </span>
-                    <span><%= t('users_admin') %></span>
-                  </span>
-                <% end %>
+                <%= link_to t('users_admin'), adminpanel_index_path, class: "navbar-item" %>
               <% end %>
               <hr class="navbar-divider">
               <%= link_to t("sign_out"), destroy_user_session_path, method: :delete, class: "navbar-item" %>

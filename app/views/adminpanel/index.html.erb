@@ -4,7 +4,7 @@
       <h1 class="title"><%= t('users_admin') %></h1>
       <hr>
 
-      <table class= "table">
+      <table class= "table is-fullwidth">
         <tr>
           <th><%=User.human_attribute_name("username")%></th>
           <th><%=User.human_attribute_name("user_type")%></th>
@@ -16,8 +16,24 @@
             <td><%= ad.username %></td>
             <td><%= ad.user_type %></td>
             <td><%= ad.email %></td>
-            <td><%= link_to t('destroy'), adminpanel_path(id: ad.id), method: :delete, data: { confirm: 'Are you sure you want to delete this user?' } %></td>
-            <td><%= link_to t('edit'), edit_adminpanel_path(id: ad.id) %></td>
+            <td>
+              <%= link_to edit_adminpanel_path(id: ad.id) do %>
+                <span class="icon-text">
+                  <span class="icon">
+                    <%= fa_icon "edit" %>
+                  </span>
+                </span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to adminpanel_path(id: ad.id), method: :delete, data: {confirm: 'Are you sure you want to delete this user?'} do %>
+                <span class="icon-text has-text-danger">
+                  <span class="icon">
+                    <%= fa_icon "trash" %>
+                  </span>
+                </span>
+              <% end %>
+              </td>
           </tr>
         <% end %>
       </table>

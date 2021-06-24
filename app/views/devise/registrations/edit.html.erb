@@ -16,7 +16,7 @@
         <%= f.file_field :avatar, class: 'file-input', data: {action:'change->users#changePreviewAvatar'} %>
         <span class="file-cta">
           <span class="file-icon">
-            <i class="fas fa-upload"></i>
+            <%= fa_icon "upload" %>
           </span>
           <span class="file-label">
             avatar…
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :username, class:"label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.text_field  :username,
                         required: true,
                         autofocus: true,
@@ -37,15 +37,15 @@
                         style: "text-transform:lowercase",
                         onkeyup: "javascript:this.value=this.value.toLowerCase();",
                         autocomplete: "username" %>
-      
-        <i class="fas fa-user"></i>
+      <span class="icon is-small is-left">
+        <%= fa_icon "user" %>
       </span>
     </div>
   </div>
 
   <div class="field">
     <%= f.label :email, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.email_field :email,
                         required: true,
                         autocomplete: "email",
@@ -53,8 +53,8 @@
                         placeholder: "Email",
                         style: "text-transform:lowercase",
                         onkeyup: "javascript:this.value=this.value.toLowerCase();" %>
-      
-        
+      <span class="icon is-small is-left">
+        <%= fa_icon "envelope" %>
       </span>
     </div>
   </div>
@@ -62,40 +62,49 @@
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password, class: "label" %>
-    <div class="control">
-      <%= f.password_field  :password,
-                            autocomplete: "new-password",
-                            class: "input" %>
-      
-        <i class="fas fa-lock"></i>
-      </span>
-      <p class="help">
-        <%= t('.leave_blank_if_you_don_t_want_to_change_it') %>
-        <% if @minimum_password_length %>
-          <%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %>
-        <% end %>
-      </p>
-    </div>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, class: "label" %>
-      <div class="control">
-      <%= f.password_field  :password_confirmation,
-                            autocomplete: "new-password",
-                            class: "input" %>
-      
-        <i class="fas fa-lock"></i>
-      </span>
-      <p class="help">
-        <% if @minimum_password_length %>
-          <%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %>
-        <% end %>
-      </p>
+  <nav class="panel">
+    <p class="panel-heading">
+      Cambiar contraseña
+    </p>
+    <div class="panel-block">
+      <div class="field">
+        <%= f.label :password, class: "label" %>
+        <div class="control has-icons-left">
+          <%= f.password_field  :password,
+                                autocomplete: "new-password",
+                                class: "input" %>
+          <span class="icon is-small is-left">
+            <%= fa_icon "lock" %>
+          </span>
+          <p class="help">
+            <%= t('.leave_blank_if_you_don_t_want_to_change_it') %>
+            <% if @minimum_password_length %>
+              <%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %>
+            <% end %>
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="panel-block">
+      <div class="field">
+        <%= f.label :password_confirmation, class: "label" %>
+          <div class="control has-icons-left">
+          <%= f.password_field  :password_confirmation,
+                                autocomplete: "new-password",
+                                class: "input" %>
+          <span class="icon is-small is-left">
+            <%= fa_icon "lock" %>
+          </span>
+          <p class="help">
+            <% if @minimum_password_length %>
+              <%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </nav>
 
   <hr>
   <div class="field is-grouped">

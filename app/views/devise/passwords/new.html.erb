@@ -1,42 +1,36 @@
-<div class="columns is-vcentered">
-  <div class="column is-6">
-    <figure class="image is-4by3">
-      <%= image_tag "undraw_authentication_fsn5.svg", alt:"" %>
-    </figure>
-  </div>
-  <div class="column is-5 is-offset-1">
-    <h1 class="title">
-      <%= t('.forgot_your_password') %>
-    </h1>
-    <hr>
+<h1 class="title">
+  <%= t('.forgot_your_password') %>
+</h1>
+<hr>
 
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :email, class: "label" %>
-        <div class="control">
-          <%= f.email_field :email,
-                            required: true,
-                            autocomplete: "email",
-                            class: "input",
-                            placeholder: "example@email.com",
-                            pattern: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
-                            style: "text-transform:lowercase",
-                            onkeyup: "javascript:this.value=this.value.toLowerCase();" %>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="control">
-          <%= f.submit t('.send_me_reset_password_instructions'), class: "button is-link is-fullwidth" %>
-        </div>
-      </div>
-    <% end %>
-
-    <hr>
-    <div class="">
-      <%= render "devise/shared/links" %>
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <div class="control has-icons-left">
+      <%= f.email_field :email,
+                        required: true,
+                        autocomplete: "email",
+                        class: "input",
+                        placeholder: "example@email.com",
+                        pattern: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
+                        style: "text-transform:lowercase",
+                        onkeyup: "javascript:this.value=this.value.toLowerCase();" %>
+      <span class="icon is-small is-left">
+        <%= fa_icon "envelope" %>
+      </span>
     </div>
   </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit t('.send_me_reset_password_instructions'), class: "button is-link is-fullwidth" %>
+    </div>
+  </div>
+<% end %>
+
+<hr>
+<div class="">
+  <%= render "devise/shared/links" %>
 </div>

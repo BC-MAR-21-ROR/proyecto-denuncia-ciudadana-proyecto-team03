@@ -1,27 +1,63 @@
 <% @complaints.each do |complaint| %>
-  <div class="card">
-    <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-          <p class="subtitle is-6">
-            <%= complaint.anonymous ? 'Anonymous' : "@#{truncate(complaint.user.username, length: 50)}" %>
-          </p>
-          <p class="title is-4">
-            <%= link_to (truncate(complaint.title, length: 50)), complaint, class: "has-text-dark" %>
-          </p>
-          <p class="subtitle is-6">
-          <%= complaint.category.name if complaint.category %></p>
+<div class="card">
+  <div class="card-content">
+    <div class="media">
+      <%# <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+      </div> %>
+      <div class="media-content">
+        <p class="title is-4">
+          <%= link_to (truncate(complaint.title, length: 50)), complaint, class: "has-text-dark" %>
+        </p>
+        <p class="subtitle is-6">
+          <%= complaint.anonymous ? 'Anonymous' : "@#{truncate(complaint.user.username, length: 50)}" %>
+        </p>
+      </div>
+    </div>
+
+    <div class="content">
+      <span class="icon-text has-text-dark">
+        <span class="icon">
+          <%= fa_icon "tag" %>
+        </span>
+        <span><%= complaint.category.name if complaint.category %></span>
+      </span>
+      •
+      <span class="icon-text has-text-dark">
+        <span class="icon">
+          <%= fa_icon "globe" %>
+        </span>
+        <span>
           <%= complaint.settlement.name if complaint.settlement %>
           <%= "- " + complaint.municipality.name if complaint.municipality %>
           <%= "- " + complaint.state.name if complaint.state %>
-        </div>
-      </div>
-
-      <div class="content">
-        <%= truncate(complaint.description, length: 250) %>
-        <%= link_to t("see_more"), complaint %>
-        <br>
-      </div>
+        </span>
+      </span>
+      •
+      <span class="icon-text has-text-dark">
+        <span class="icon">
+          <%= fa_icon "calendar" %>
+        </span>
+        <span><%= complaint.created_at.strftime("%F") %></span>
+      </span>
+      <br>
+      <%= truncate(complaint.description, length: 250) %>
+      <%= link_to t("see_more"), complaint %>
     </div>
+
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <%= link_to complaint, class: "level-item" do %>
+          <span class="">
+            <%= fa_icon "comment" %>
+            <%= complaint.comments.count %>
+          </span>
+        <% end %>
+      </div>
+    </nav>
   </div>
+</div>
+<br>
 <% end %>

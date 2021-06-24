@@ -1,11 +1,12 @@
 <div class="columns">
   <div class="column is-10 is-offset-1">
-    <%= render 'post' %>
-  </div>
-  <div class="column is-10 is-offset-1">
     <div class="card">
       <div class="card-content">
-        <span id="comments_count"><%= @complaint.comments.count %></span> <%= Comment.model_name.human(count: @complaint.comments.count) %>:<br>
+        <%= render 'post' %>
+        <hr>
+        <div class="is-hidden">
+          <span id="comments_count"></span>
+        </div>
         <div id="comment_list" class="mb-5">
           <%= render @complaint.comments %>
         </div>

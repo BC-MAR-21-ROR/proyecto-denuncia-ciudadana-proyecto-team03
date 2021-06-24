@@ -1,8 +1,7 @@
-<%= link_to unlike_path(complaint), method: :delete, remote: true, class: "" do %>
-  <span class="icon-text has-text-link">
+<%= link_to unlike_path(complaint), method: :delete, remote: true, class: "level-item" do %>
+  <span class="">
     <span class="icon">
-      <i class="fas fa-exclamation-triangle"></i>
+      <%= fa_icon "heart" %>
     </span>
-    <span><%= t 'does_not_require_attention' %></span>
   </span>
 <% end %>
